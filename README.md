@@ -1,28 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-UPDATE
-* System dependencies
-UPDATE
-* Configuration
-UPDATE
-* Database creation
-UPDATE
-* Database initialization
-UPDATE
-* How to run the test suite
-UPDATE
-* Services (job queues, cache servers, search engines, etc.)
-LEAVE?
-* Deployment instructions
-UPDATE
-* ...
-
 # Rails app 
 This rails app was created as part of assessment for Coder Academy Fasttrack Bootcamp over two weeks in April, 2019. 
 
@@ -61,10 +38,52 @@ Photo of Day 1 meeting board
 ![Photo of Day 1 record of decisions on board](images/Day&#32;1/Day1_Meeting.jpg)
 
 Trello at start of Day 1
-![Trello board Day 1 screenshot](images/Day&#32;1/RA_Trello_StartOfDay1.png)
+![Trello board at start of Day 1](images/Day&#32;1/RA_Trello_StartOfDay1.png)
 
 Trello at end of Day 1
 ![Trello board at end of Day 1](images/Day&#32;1/RA_Trello_EndOfDay1.png)
 
 Heroku home page deployed at end of Day 1
 ![Screenshot of test home page after deployment](images/Day&#32;1/RA_Heroku_Day1.png)
+
+# Day 2
+
+**Morning check in**
+
+Group agrees
+- RB had updated the ERD overnight and wanted to continue, so he'll work on that for the morning. 
+- GW to update Trello after check in, complete linking cards in Trello and check requirements are on track 
+- JP continuing research for wireframes
+- group completed WIP and gave following update:
+
+Notes from WIP and morning plan
+
+![Screenshot of notes from WIP](images/Day&#32;2/RA_Trello_Day2WIP.png)
+
+![Trello board at start of Day 2](images/Day&#32;2/RA_Trello_StartOfDay2.png)
+
+**Midday check in**
+
+
+
+FROM DEFAULT TO UPDATE IF NOT DONE ELSEWHERE
+
+Things you may want to cover:
+
+* Ruby version
+UPDATE
+* System dependencies
+UPDATE
+* Configuration
+UPDATE
+* Database creation
+UPDATE
+* Database initialization
+UPDATE
+* How to run the test suite
+UPDATE
+* Services (job queues, cache servers, search engines, etc.)
+LEAVE?
+* Deployment instructions
+UPDATE
+* ...

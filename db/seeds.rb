@@ -34,3 +34,11 @@ customer = User.create(email: 'customer@gmail.com', password: 'password123', adm
 customer.save
 
 puts 'created customer'
+
+puts '----------------'
+
+puts 'creating products'
+
+beer = Product.create(title: 'Furphy', description: 'Delicious Beer', category: 'Pale Ale', abv: 4.5, image_url: 'https://www.google.com', price: 4.50, quantity: 24, vendor_id: 2)
+
+puts 'created furpy beer, belong to vendor_id: 2'

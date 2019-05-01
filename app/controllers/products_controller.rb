@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
         end
       end
     end
+
+    @beers = Product.all 
   end
 
 end

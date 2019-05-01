@@ -4,13 +4,18 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    if @order.save
-      redirect_to @order 
-    else
-      render 'new'
+    @order = Order.new(user_id: current_user.id)
+    @order_items = OrderItem.where(user_id: current_user.id, pending: true)
+    @order_items.each do |item|
+      item.update(pending: false)
+      @order.order_items << item
     end
 
+    if @order.save
+      render :show
+    else
+      render :new
+    end
   end
 
   def update
@@ -23,13 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    # @beer_id = params[:beer].to_i
-    # @user_id = current_user.id # just for now
-    # @order = Order.new(user_id: current_user.id)
-    # @order.save
-
-    # @order_item = OrderItem.new(product_id: @beer_id, quantity: 1)
-    # @order_item.save 
+    @order = Order.new(user_id: current_user.id)
   end
 
   def edit
@@ -37,11 +36,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @orders = OrderItems.where(user_id: current_user.id)
+    @order = OrderItem.find(user_id: current_user.id)
   end
 
   private
   def order_params
-    params.permit(:order_id, :user_id, :total_price, :beer)
+    params.permit(:total_price, :beer)
   end
 end

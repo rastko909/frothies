@@ -40,5 +40,8 @@ puts '----------------'
 puts 'creating products'
 
 beer = Product.create(title: 'Furphy', description: 'Delicious Beer', category: 'Pale Ale', abv: 4.5, image_url: 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg', price: 4.50, quantity: 24, vendor_id: 2)
+puts 'created furpy beer, belongs to vendor_id: 2'
 
-puts 'created furpy beer, belong to vendor_id: 2'
+beer2 = Product.create(title: 'Carlton', description: 'Sensational Beer', category: 'Lager', abv: 4.7, image_url: 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306', price: 3.50, quantity: 24, vendor_id: 3)
+
+puts 'created carlton beer, belongs to vendor_id: 3'

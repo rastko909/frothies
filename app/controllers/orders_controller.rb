@@ -23,13 +23,13 @@ class OrdersController < ApplicationController
   end
 
   def new
-    
-    @beer_id = params[:beer].to_i
-    @order = Order.new(user_id: current_user.id)
-    @order.save
+    # @beer_id = params[:beer].to_i
+    # @user_id = current_user.id # just for now
+    # @order = Order.new(user_id: current_user.id)
+    # @order.save
 
-    @order_item = OrderItem.new(product_id: @beer_id, quantity: 1)
-    @order_item.save 
+    # @order_item = OrderItem.new(product_id: @beer_id, quantity: 1)
+    # @order_item.save 
   end
 
   def edit

@@ -6,7 +6,7 @@
     <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
     <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
     <div class="d-flex flex-row justify-content-between">
-    <%= link_to 'Buy', new_order_path(beer: beer.id),  class: 'btn btn-primary' %>
+    <%= link_to 'Buy', order_items_path(beer: beer.id), method: :post,  class: 'btn btn-primary' %>
     <%# <a href="#" class="btn btn-primary">Buy Single</a>
     <a href="#" class="btn btn-primary">Buy 6 Pack</a>
     <a href="#" class="btn btn-primary">Buy Slab</a> %>

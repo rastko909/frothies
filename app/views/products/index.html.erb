@@ -1,6 +1,16 @@
-<% if user_signed_in? %>
-  Welcome back, <%= @first_name %>
-  <% if current_user.vendor? == true %>
-  Your company name: <%= @company_name %>
-  <% end %>
+<% @beers.each do |beer| %>
+<div class="card d-flex flex-column m-2 w-25">
+  <img class="card-img-top" src="<%= beer.image_url %>" alt="<%= beer.title %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= beer.title %></h5>
+    <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
+    <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
+    <div class="d-flex flex-row justify-content-between">
+    <%= link_to 'Buy', new_order_path(beer.id), class: 'btn btn-primary' %>
+    <%# <a href="#" class="btn btn-primary">Buy Single</a>
+    <a href="#" class="btn btn-primary">Buy 6 Pack</a>
+    <a href="#" class="btn btn-primary">Buy Slab</a> %>
+    </div>
+  </div>
+</div>
 <% end %>

@@ -20,25 +20,62 @@ Cardboard User Stories: https://app.cardboardit.com/maps/guests/f9c1bdb994a2426b
 # Short answer questions
 ## 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
+In the beer industry, we identified that microbreweries are stretched for time and resources and find themselves in an increasingly saturated market. We recognised a strong need for them to diversify their customer base if they are to survive and keep the art of craft beer alive. 
+
+At the same time, our target customers from Generation X, Y and Z have a passion for good quality craft beer. They also want to support local businesses. However, these people may be too busy with study or work to search for or visit such microbreweries.
+
+We saw an opportunity to connect these two groups of people via an app that acts as a marketplace, relieving time pressure for both parties and bridging the gap between buyer and seller. 
+
 ## 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 
-## 3. Describe the project will you be conducting and how. your App will address the needs.
+business case
+
+saturated (stat - 200% in two year increase?)
+
+millenials wanting to buy local, support communities
+
+The business case for this issue is that microbreweries tend to be 'bricks and mortar' physical stores. Such stores traditionally rely on customer visits for tours or tastings for business (stat on tourist industry?). (stat - online?) This means the breweries miss out on the opportunity that digital environments provide and therefore do not pass on this convenience to their customer base or have the chance to widen their market. As the craft beer industry has soared in popularity, ignoring an opportunity to diversity is now a more serious risk for the microbrewers, and by extension, the local economy.
+
+## 3. Describe the project will you be conducting and how your App will address the needs.
+
+Frothies, the online marketplace we are creating, aims to make the user experience online simple and straightforward. This will save time for busy brewery owners, because they'll be able to get immediate data on their products without doing the analytics manually. In addition, their products will be introduced to a larger online audience outside their local area without them having to pay for advertising or use their resources to travel to different areas to sell.
+
+For the buyers in our marketplace, the project will provide a convenient online environment that allows them to support microbreweries without having to spend time searching for them or travelling to them. We bring the beer tasting directly to their front door. 
 
 ## 4. Describe the network infrastructure the App may be based on.
 
+
+
 ## 5. Identify and describe the software to be used in your App.
+
+
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
+We implemented Postgresql why? 
+
 ## 7. Identify and describe the production database setup (i.e. postgres instance).
+
+
 
 ## 8. Describe the architecture of your App.
 
+
+
 ## 9.Explain the different high-level components (abstractions) in your App.
+
+
 
 ## 10.Detail any third party services that your App will use.
 
+Devise?
+Cancan?
+Stripe?
+AWS?
+
 ## 11.Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+
 
 ## 12.Discuss the database relations to be implemented.
 

@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all 
-    binding.pry
   end
 
   def create
@@ -26,6 +25,7 @@ class OrdersController < ApplicationController
   def new
     
     @beer_id = params[:beer].to_i
+    @user_id = current_user.id # just for now
     @order = Order.new(user_id: current_user.id)
     @order.save
 

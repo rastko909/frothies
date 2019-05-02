@@ -63,8 +63,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'cancancan'
+gem 'stripe'
 
 gem 'faker'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+gem "aws-sdk-s3", require: false
+
+gem 'dotenv-rails', groups: [:development, :test]

@@ -6,6 +6,7 @@
       <h5 class="card-title"><%= beer.title %></h5>
       <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
       <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
+      <p class="card-text"><strong>Price:</strong> $<%= beer.price %></p>
       <div class="d-flex flex-row justify-content-between">
       <%= link_to 'Buy Single', order_items_path(beer: beer.id, quantity: 1), method: :post,  class: 'btn btn-primary' %>
       <%= link_to 'Buy 6 Pack', order_items_path(beer: beer.id, quantity: 6), method: :post,  class: 'btn btn-primary' %>

@@ -93,7 +93,7 @@ AWS?
 
 *Communication channel in slack*
 
-![Screenshot of Slack channel](images/Day&#32;1/comms.png)
+![Screenshot of Slack channel](images/Day&#32;4/Slack.png)
 
 ## 18. Discuss how Agile methodology is being implemented in your project.
 
@@ -293,8 +293,6 @@ If done early, then:
 - Stripe
 - CanCan
 
-
-
 **Middle of day update**
 1. Objects can be retrieved
 2. We've started on short answer questions and will do more together as a group starting after lunch
@@ -308,6 +306,44 @@ Wireframes were completed for a third device—iPad.
 *Screenshot of iPad wireframes*
 
 ![Screenshot of iPad wireframes](images/Day&#32;3/Fig_ipad_2.png)
+
+
+**End of day 3 update**
+RB/JP stayed late and worked our order system
+All MVP features for buyer now working as per user stories, i.e.
+- sign up
+- add products to cart
+- store products in cart (i.e. be able to log out and log back in and see the products there still)
+- view products in cart
+
+Third device wireframes are done
+
+Details of end of day 3 check in in Trello card screenshot below. 
+
+*Screenshot of End of day 3 update*
+
+![End of Day 3 notes](images/Day&#32;4/RA_Trello_EndOfDay3.png)
+
+# Day 4
+
+*Day 4 planning meeting*
+We agreed to get the rest of the MVP requirements added in today and tomorrow if required. There is Stripe, Cancan, and AWS image uploading remaining for the technical requirements (see previous screenshot End of Day 3 update in Trello). 
+
+Authorisation 
+
+We revised authorisation and decided to implement six abilities in total in week 1 using Cancan. We'll use the Cancan shortcuts (e.g. Read for :show, :index, :to). We also planned further authorisation to add in in week  (see screenshot below).
+
+*Authorisation planning*
+
+![Screenshot of Trello card with authorisation plan](images/Day&#32;4/RA_Trello_AuthorisationPlanning1.png)
+
+*Authorisation brainstorm*
+
+![Screenshot of Trello card with authorisation brainstorming](images/Day&#32;4/RA_Trello_AuthorisationPlanning2.png)
+
+
+
+
 
 FROM DEFAULT TO UPDATE IF NOT DONE ELSEWHERE
 

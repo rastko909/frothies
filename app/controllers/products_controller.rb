@@ -15,4 +15,17 @@ class ProductsController < ApplicationController
     end
     @beers = Product.all 
   end
+
+  def create
+    user = current_user.id.vendors.find(current_user.id).id 
+    raise 
+    new_product = Product.new(product_params)
+    new_product.save
+    redirect_to products_path
+  end
+
+  private
+  def product_params
+    params.permit(:title, :description, :image_url, :category, :abv, :price, :quantity)
+  end
 end

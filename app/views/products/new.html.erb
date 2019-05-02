@@ -5,6 +5,20 @@
 <form action="<%= products_path %>" method="POST" enctype="multipart/form-data">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
+    <% if @product.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+        <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+        this product from being saved:
+        </h2>
+        <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
   <label>Beer name</label>
   <input type="text" name="title" />
 

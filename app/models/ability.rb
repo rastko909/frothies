@@ -8,7 +8,7 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.is_vendor?
-        can :manage, :all
+        can :manage, Product
       else
         can :read, :all
       end

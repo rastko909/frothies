@@ -1,3 +1,10 @@
 <% @orders.each do |order| %>
-  <%= order.user_id %>
+  <p><strong><h4>Order ID: #<%= order.id %></h4></strong></p>
+    <% @orders_belonging_to_user = order.order_items.where(user_id: current_user.id) %>
+    <% @orders_belonging_to_user.each do |orders| %>
+      <p><strong>Product: </strong><%= orders.product.title %> - <strong> Quantity: </strong> <%= orders.quantity %></p>
+    <% end %>
+    <hr>
+    <p><strong>Total Price:</strong> $<%= order.total_price %> AUD</p>
+    <hr>
 <% end %>

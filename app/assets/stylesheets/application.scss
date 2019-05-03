@@ -18,3 +18,33 @@
    font-size: 2rem;
    color: black;
  }
+
+ #force-width {
+   width: 30% !important;
+ }
+
+ .navbar {
+   align-content: center !important;
+   height: 4.5rem !important;
+ }
+
+ .navbar-nav {
+   display: flex;
+   align-content: center;
+ }
+
+ .navbar-nav > ul {
+   height: 4.5rem !important;
+ }
+
+ #remove-bottom-margin {
+   margin-bottom: 0;
+ }
+
+ .navbar-nav > li {
+  display: flex;
+  height: 4.5rem !important;
+  justify-content: center !important;
+  align-content: center !important;
+  width: 100%;
+}

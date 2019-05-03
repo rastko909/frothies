@@ -12,8 +12,12 @@
       <%= link_to 'Buy Single', order_items_path(beer: beer.id, quantity: 1), method: :post,  class: 'btn btn-primary' %>
       <%= link_to 'Buy 6 Pack', order_items_path(beer: beer.id, quantity: 6), method: :post,  class: 'btn btn-primary' %>
       <%= link_to 'Buy Slab', order_items_path(beer: beer.id, quantity: 24), method: :post,  class: 'btn btn-primary' %>
+      <% if can? :edit, Product %>
       <%= link_to 'Edit', edit_product_path(id: beer.id), method: :get, class: 'btn btn-danger' %>
+      <% end %>
+      <% if can? :delete, Product %>
       <%= link_to 'Delete', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
       </div>
     </div>
   </div>

@@ -1,16 +1,6 @@
 class ProductsController < ApplicationController
   authorize_resource
   def index
-    if user_signed_in? 
-      @user = current_user
-      @user_id = current_user.id 
-      @first_name = current_user.first_name
-      @last_name = current_user.last_name 
-
-      if @user.is_vendor? == true 
-          @company_name = @user.vendor.company_name
-      end
-    end
     @products = Product.all 
   end
 

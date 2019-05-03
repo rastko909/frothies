@@ -7,12 +7,23 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.is_vendor?
+      if user.is_admin?
+        can :manage, :all
+      elsif user.is_vendor?
         can :manage, Product
+        can :manage, Vendor
       else
-        can :read, :all
+        can :read, Product 
       end
+
+    # NOTE: best practice according to cancancommunity, try to implement next week
+
+    # return unless user.present?
+    # can :manage, Product, user_id #shit user can manage when logged in
+    # return unless user.is_vendor? #shit vendors can manage
+    # can :manage, xxx
     #
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

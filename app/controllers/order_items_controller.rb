@@ -17,6 +17,7 @@ class OrderItemsController < ApplicationController
     @user.order_items << @order_item
   
     if @order_item.save!
+      flash[:success] = "Added item to cart!"
       redirect_to root_path
     else
       render :new

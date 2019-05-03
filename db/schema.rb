@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_062516) do
+ActiveRecord::Schema.define(version: 2019_05_02_085118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.bigint "product_id"
@@ -42,7 +63,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_062516) do
     t.string "description"
     t.string "category"
     t.decimal "abv", precision: 8, scale: 2
-    t.string "image_url"
     t.decimal "price", precision: 8, scale: 2
     t.integer "quantity"
     t.datetime "created_at", null: false
@@ -69,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_062516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
-    t.boolean "vendor"
+    t.boolean "is_vendor"
     t.string "first_name"
     t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -85,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_062516) do
     t.index ["user_id"], name: "index_vendors_on_user_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "vendors"
   add_foreign_key "vendors", "users"

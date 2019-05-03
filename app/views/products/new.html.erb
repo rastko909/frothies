@@ -1,5 +1,5 @@
 
-<div class="d-flex flex-column-center justify-content-center" style="color: red">
+<div class="d-flex flex-column-center justify-content-center newproductform">
 
 <form action="<%= products_path %>" method="POST" enctype="multipart/form-data">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
@@ -19,45 +19,47 @@
     <% end %>
   <div id="newproductheader">
    <h1>Products</h1>
+  <div class="newproductheader">
+   <h1>Products</h1>
+   <h2>Add New Product</h2>
+  </div>
 
-   <h1>Add New Product</h1>
-   </div>
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="title">Beer Name</label>
     <input type="text" class="form-control" id="title" placeholder="Enter Beer Name" name="title">
   </div>
   
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="description">Description</label>
     <input type="textarea" class="form-control" id="description" placeholder="Enter Description" name="description">
   </div>
   
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="category">Category</label>
     <input type="text" class="form-control" id="category" placeholder="Enter Category"  name="category">
   </div>
 
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="abv">ABV</label>
     <input type="number" step="0.01" class="form-control" id="abv" placeholder="Enter ABV" name="abv">
   </div>
 
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="price">Price</label>
     <input type="number" step="0.01" class="form-control" id="price" placeholder="Enter Price" name="price">
   </div>
 
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label for="quantity">Quantity</label>
     <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity" name="quantity">
   </div>
 
-  <div class="form-group" style="width: 21.5rem;">
+  <div class="form-group">
     <label>Beer image upload</label>
-    <input type="file" name="image_url" accept="image/png, image/jepg" />
+    <input type="file" name="image_url" accept="image/png, image/jepg">
   </div>
 
-  <input id="submit" type="submit" value="Upload & Submit" />
+  <input id="submit" type="submit" value="Upload & Submit" class="submit">
 
 </form>
 </div>

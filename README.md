@@ -318,6 +318,12 @@ All MVP features for buyer now working as per user stories, i.e.
 
 Third device wireframes are done
 
+*Updated wireframes for Ipad*
+
+![Screenshots of wireframe design](images/Day&#32;4/RA_Fig_Ipad1.png)
+
+![Screenshots of wireframe design](images/Day&#32;4/RA_Fig_Ipad2.png)
+
 Details of end of day 3 check in in Trello card screenshot below. 
 
 *Screenshot of End of day 3 update*

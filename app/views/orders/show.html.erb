@@ -8,8 +8,9 @@
   <p><strong>Type:</strong> <%= item.product.category %></p>
   <p><strong>ABV:</strong> <%= item.product.abv %></p>
   <p><strong>Price:</strong> $<%= item.product.price * item.quantity %> AUD<p>
+  <hr>
 <% end %>
-<hr>
-<strong>Order Total:</strong> $<%= @order.total_price %> AUD
 
+<strong>Order Total:</strong> $<%= @order.total_price %> AUD
+<hr>
 <%= render "layouts/shared/stripe_form" %>

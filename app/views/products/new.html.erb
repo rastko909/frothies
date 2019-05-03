@@ -17,10 +17,11 @@
         </ul>
     </div>
     <% end %>
+  <div id="newproductheader">
+   <h1>Products</h1>
 
-   <h1 style="color: black" align="center">Products</h1>
-
-   <h3 style="color: black" align="center">Add New Product</h3>
+   <h1>Add New Product</h1>
+   </div>
   <div class="form-group" style="width: 21.5rem;">
     <label for="title">Beer Name</label>
     <input type="text" class="form-control" id="title" placeholder="Enter Beer Name" name="title">
@@ -43,7 +44,7 @@
 
   <div class="form-group" style="width: 21.5rem;">
     <label for="price">Price</label>
-    <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
+    <input type="number" step="0.01" class="form-control" id="price" placeholder="Enter Price" name="price">
   </div>
 
   <div class="form-group" style="width: 21.5rem;">
@@ -59,5 +60,4 @@
   <input id="submit" type="submit" value="Upload & Submit" />
 
 </form>
-
 </div>

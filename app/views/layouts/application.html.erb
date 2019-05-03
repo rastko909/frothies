@@ -42,7 +42,7 @@
               <p id="remove-bottom-margin">Cart</p> 
               <% else %>
               <i style="color: red;" id="big-icon" class="fas fa-shopping-cart"></i>
-              <p id="remove-bottom-margin">Cart</p> 
+              <p id="remove-bottom-margin">Cart (<%= @order.orderitems.count %>)</p> 
               <% end %>
           <% end %>
         </li>
@@ -62,7 +62,15 @@
   <div class="container-fluid">
 
     <% flash.each do |key, value| %>
-      <%= value %>
+      <% if key == 'success'  %>
+        <div class="alert alert-success" role="alert">
+          <%= value %>
+        </div>
+      <% else %>
+        <div class="alert alert-primary" role="alert">
+          <%= value %>
+      </div>
+      <% end %>
     <% end %>
     
     <%= yield %>  

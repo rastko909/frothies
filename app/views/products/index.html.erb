@@ -1,4 +1,5 @@
-<div class="d-flex flew-row flew-wrap">
+
+<div class="d-flex justify-content-between flew-row flew-wrap">
   <% @products.each do |beer| %>
   <div class="card d-flex flex-column m-2 w-25">
     <%= image_tag beer.image_url, class: 'card-img-top' if beer.image_url.attached? %>
@@ -23,3 +24,4 @@
   </div>
  <% end %>
 </div>
+

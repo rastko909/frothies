@@ -13,11 +13,37 @@
  */
 
  @import "bootstrap";
+ @import './products.scss';
+ @import './charges.scss';
+ @import './order_items.scss';
+ @import './orders.scss';
+ @import './vendors.scss';
 
  #big-icon {
    font-size: 2rem;
    color: black;
  }
+
+ * {
+  font-family: 'Quantico', sans-serif;
+ }
+
+ @import url('https://fonts.googleapis.com/css?family=Quantico');
+
+ :root {
+  --dirtyorange: #FEBC12;
+  --turtlegreen: #47877C;
+  --brightorange: #FFC123;
+  --limegreen: #C3E141;
+  --brownish: #C67030;
+  --cartgreen: #B9CCB6;
+  --greenish: #637452;
+
+  --shadow:	    0 2px 4px 0 rgba(0,0,0,0.10);
+  --shadow-md:  0 4px 8px 0 rgba(0, 0, 0, 0.171),
+                  0 2px 4px 0 rgba(0,0,0,0.08);
+  --shadow-lg:	0 15px 30px 0 rgba(0,0,0,0.11),
+                  0 5px 15px 0 rgba(0,0,0,0.08);
 
  #force-width {
    width: 30% !important;

@@ -28,4 +28,5 @@
 
 /config/database.yml
 
+#ignore .env 
 .env

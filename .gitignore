@@ -27,6 +27,4 @@
 /config/master.key
 
 /config/database.yml
-
-#ignore .env 
-.env
+ .env

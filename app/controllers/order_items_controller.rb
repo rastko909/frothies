@@ -1,13 +1,6 @@
 class OrderItemsController < ApplicationController
   def index 
     @order_items = OrderItem.where(pending: true)
-
-    # repeating code here - need to make helper or global method to count cart items? - ras
-    @cart_count = 0
-    unless current_user == nil
-    @cart_count = OrderItem.where(user: current_user.id).count
-    end
-    
     @total_price = 0
     @order_items.each do |item|
       @total_price += item.product.price * item.quantity

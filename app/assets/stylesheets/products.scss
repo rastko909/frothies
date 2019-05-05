@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.newproductform {
+  margin-top: 20px;
+}
 
+.newproductheader {
+  background: $brightorange;
+  text-align: center !important;
+}
 
+.form-group {
+  width: 21.5rem;
+}
 
+.submit {
+  width: 100%;
+}

@@ -1,8 +1,17 @@
 class OrderItemsController < ApplicationController
-  def show
-  end
+  def index 
+    @order_items = OrderItem.where(pending: true)
 
-  def index
+    # repeating code here - need to make helper or global method to count cart items? - ras
+    @cart_count = 0
+    unless current_user == nil
+    @cart_count = OrderItem.where(user: current_user.id).count
+    end
+    
+    @total_price = 0
+    @order_items.each do |item|
+      @total_price += item.product.price * item.quantity
+    end
   end
 
   def new
@@ -10,24 +19,27 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    @beer_id = params[:beer].to_i
-    @quantity = params[:quantity].to_i
-    @user = current_user
-    @order_item = OrderItem.new(product_id: @beer_id, quantity: @quantity, pending: true)
-    @user.order_items << @order_item
-  
-    if @order_item.save!
-      redirect_to root_path
-    else
-      render :new
+    unless current_user == nil
+      @order_item = OrderItem.new(order_items_params)
+      current_user.order_items << @order_item
+
+      if @order_item.save!
+        flash[:success] = "Added item to cart!"
+        redirect_to root_path
+      else
+        render :new
+      end     
     end
   end
 
-  def edit
+  def destroy
+    @order_item = OrderItem.find(params[:id])
+    @order_item.destroy
+    redirect_to order_items_path
   end
 
   private
   def order_items_params
-    params.permit(:total_price, :beer, :quantity, :pending)
+    params.permit(:product_id, :quantity, :pending)
   end
 end

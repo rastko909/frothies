@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
   authorize_resource
   def index
     @products = Product.all 
+    @cart_count = 0
+    unless current_user == nil
+    @cart_count = OrderItem.where(user: current_user.id, pending: true).count
+    end
   end
 
   def new 

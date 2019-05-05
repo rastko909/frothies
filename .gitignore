@@ -27,7 +27,4 @@
 /config/master.key
 
 /config/database.yml
-
-#ignore .env which stores credentials for mailgun
-
-.env
+ .env

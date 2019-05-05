@@ -1,40 +1,36 @@
 
-<div class="d-flex justify-content-between flew-row flew-wrap">
+<div class="d-flex justify-content-around flew-row flew-wrap">
   <% @products.each do |beer| %>
+
   <div class="card d-flex flex-column m-2 w-25">
     <%= image_tag beer.image_url, class: 'card-img-top' if beer.image_url.attached? %>
+
     <div class="card-body">
+
       <h5 class="card-title"><%= beer.title %></h5>
-      <%= beer.vendor.id %>
+      <p class="card-text"><strong>Brewer:</strong> <%= beer.vendor.company_name  %></p>
       <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
       <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
       <p class="card-text"><strong>Price:</strong> $<%= beer.price %></p>
+
       <div class="d-flex flex-row justify-content-between">
-      <%= link_to 'Buy Single', order_items_path(beer: beer.id, quantity: 1), method: :post,  class: 'btn btn-primary' %>
-      <%= link_to 'Buy 6 Pack', order_items_path(beer: beer.id, quantity: 6), method: :post,  class: 'btn btn-primary' %>
-      <%= link_to 'Buy Slab', order_items_path(beer: beer.id, quantity: 24), method: :post,  class: 'btn btn-primary' %>
+        <%= link_to 'Buy Single', order_items_path(product_id: beer.id, quantity: 1, pending: true), method: :post,  class: 'btn btn-primary' %>
+        <%= link_to 'Buy 6 Pack', order_items_path(product_id: beer.id, quantity: 6, pending: true), method: :post,  class: 'btn btn-primary' %>
+        <%= link_to 'Buy Slab', order_items_path(product_id: beer.id, quantity: 24, pending: true), method: :post,  class: 'btn btn-primary' %>
+      </div>
+
+    </div>
+
+    <!-- <div class="d-flex flex-row  card-footer justify-content-around">
       <% if can? :edit, Product %>
-      <%= link_to 'Edit', edit_product_path(id: beer.id), method: :get, class: 'btn btn-danger' %>
+        <%= link_to 'Update', edit_product_path(id: beer.id), method: :get, class: 'btn btn-danger'  if beer.vendor.id == current_user.vendor.id unless current_user.is_admin? == true %>
       <% end %>
       <% if can? :delete, Product %>
-      <%= link_to 'Delete', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Delete', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' if beer.vendor.id == current_user.vendor.id %>
       <% end %>
-      </div>
-    </div>
+    </div> -->
+
   </div>
+
  <% end %>
-</div>
-
-
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
-    </p>
-    <a href="#!" class="card-link">Card link</a>
-    <a href="#!" class="card-link">Another link</a>
-  </div>
 </div>

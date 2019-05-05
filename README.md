@@ -141,9 +141,15 @@ We used the concept of User stories and User story mapping but we didn't strictl
 
 ## 20. Provide an overview and description of your Testing process.
 
-We agreed to use Minitest since it is the default for Ruby libraries. 
+We did testing at different levels during the app development. 
 
-RSpec
+This included testing as we developed each feature to see how it worked and also trying edge cases each time. For example, when we added authorisation, we tested different logins for different users to check that the authorisation behaved as expected. 
+
+We also deployed to Heroku and tested using 'raise' by entering variables and checking output was as expected.
+
+
+
+We agreed to use Minitest since it is the default for Ruby libraries
 
 Stress test
 
@@ -348,6 +354,14 @@ We revised authorisation and decided to implement six abilities in total in week
 ![Screenshot of Trello card with authorisation brainstorming](images/Day&#32;4/RA_Trello_AuthorisationPlanning2.png)
 
 
+*End of Day 4 update*
+
+At the end of Day 4, we had Stripe working, had added image uploading, and had organised the master key for all group members to have locally. Rastko 
+
+![End of day 4 notes](images/Day&#32;4/RA_Trello_EndOfDay4.png)
+
+
+**Day 5**
 
 
 

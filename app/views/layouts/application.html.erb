@@ -13,57 +13,17 @@
 
 <body>
 
-  <nav class="navbar sticky-top navbar-light bg-light justify-content-between">
-    <a class="navbar-brand"><h2><strong>Frothies!</strong></h2></a>
-    <ul id="force-width" class="navbar-nav ml-auto d-flex flex-row">
-
-        <li class="nav-item p-2">
-          <%= link_to new_user_session_path, style: 'nav-link big-icon' do %>
-            <i id="big-icon" class="fas fa-search"></i>
-            <p id="remove-bottom-margin">Search</p> 
-          <% end %>
-        </li>
-
-        <li class="nav-item p-2">
-          <%= link_to new_user_session_path, style: 'nav-link big-icon', id: 'force-align' do %>
-              <i id="big-icon" class="fas fa-user"></i>
-                <% if current_user == nil %>
-                  <p id="remove-bottom-margin">Guest</p>
-                <% else %>
-                  <p id="remove-bottom-margin"><%= current_user.first_name %></p>
-                <% end %>
-          <% end %>
-        </li>
-
-        <li class="nav-item p-2">
-          <%= link_to orders_path, method: 'post', style: 'nav-link' do %>
-            <% if @order == nil %>
-              <i style="color: black;" id="big-icon" class="fas fa-shopping-cart"></i>
-              <p id="remove-bottom-margin">Cart</p> 
-              <% else %>
-              <i style="color: red;" id="big-icon" class="fas fa-shopping-cart"></i>
-              <p id="remove-bottom-margin">Cart (<%= @order.orderitems.count %>)</p> 
-              <% end %>
-          <% end %>
-        </li>
-
-        <% if user_signed_in? %>
-          <li class="nav-item p-2">
-          <%= link_to destroy_user_session_path, method: 'delete', style: 'nav-link' do %>
-            <i id="big-icon" class="fas fa-sign-out-alt"></i>
-            <p id="remove-bottom-margin">Sign Out</p>
-          </li>
-        <% end %>
-        <% end %>
-      </ul>
-
-  </nav>
+  <%= render "layouts/shared/navbar" %>
 
   <div class="container-fluid">
 
     <% flash.each do |key, value| %>
       <% if key == 'success'  %>
         <div class="alert alert-success" role="alert">
+          <%= value %>
+        </div>
+      <% elsif key == 'alert' %>
+              <div class="alert alert-danger" role="alert">
           <%= value %>
         </div>
       <% else %>

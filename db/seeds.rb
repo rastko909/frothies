@@ -39,9 +39,27 @@ customer.save
 
 # puts 'creating products'
 
-# beer = Product.create(title: 'Furphy', description: 'Delicious Beer', category: 'Pale Ale', abv: 4.5, image_url: 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg', price: 4.50, quantity: 24, vendor_id: 2)
-# puts 'created furpy beer, belongs to vendor_id: 2'
+beer = Product.create(title: 'Furphy', description: 'Delicious Beer', category: 'Pale Ale', abv: 4.5, price: 4.50, quantity: 24, vendor_id: 2)
+url = 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+puts 'created furpy beer, belongs to vendor_id: 2'
 
-# beer2 = Product.create(title: 'Carlton', description: 'Sensational Beer', category: 'Lager', abv: 4.7, image_url: 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306', price: 3.50, quantity: 24, vendor_id: 3)
+beer = Product.create(title: 'Furphy Lite', description: 'Delicious Lite Beer', category: 'Pale Ale', abv: 4.5, price: 5.50, quantity: 12, vendor_id: 2)
+url = 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+puts 'created furpy lite beer, belongs to vendor_id: 2'
 
-# puts 'created carlton beer, belongs to vendor_id: 3'
+beer2 = Product.create(title: 'Carlton', description: 'Sensational Beer', category: 'Lager', abv: 4.7, price: 3.50, quantity: 24, vendor_id: 3)
+url = 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306'
+file = open(url)
+beer2.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+puts 'created carlton beer, belongs to vendor_id: 3'
+
+beer2 = Product.create(title: 'Carlton Fresh', description: 'Just like Carlton on tap, for you to enjoy at home!', category: 'Lager', abv: 4.7, price: 6.50, quantity: 6, vendor_id: 3)
+url = 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306'
+file = open(url)
+beer2.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+puts 'created carlton fresh beer, belongs to vendor_id: 3'
+

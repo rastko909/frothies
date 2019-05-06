@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
   def index
+    @products = Product.where(vendor_id: current_user.vendor.id)
   end
 
   def new

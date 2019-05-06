@@ -84,6 +84,23 @@
 
 /* EXMAPLE SHOPPING CART CSS, IMPORT DIDN'T WORK FOR SOME REASON */
 
+/* splitting cart into shipping details */ 
+
+.cart-container {
+
+}
+
+.cart-shipping {
+  padding: 1rem;
+  width: 50%;
+}
+
+.cart-items {
+  padding: 1rem;
+  width: 50%;
+  background: $dirtyorange;
+}
+
 /* Global settings */
  
 .product-image {
@@ -154,7 +171,7 @@ h1 {
 }
  
 label {
-  color: #aaa;
+  color: black;
 }
  
 .shopping-cart {

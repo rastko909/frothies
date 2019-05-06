@@ -1,5 +1,4 @@
 module ApplicationHelper
-
     # global method: count items in 'cart' according to user logged in
     def count_items_in_cart
       @cart_count = 0

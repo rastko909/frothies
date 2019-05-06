@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_024651) do
+ActiveRecord::Schema.define(version: 2019_05_06_043717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_024651) do
     t.boolean "is_vendor"
     t.string "first_name"
     t.string "last_name"
+    t.integer "roles_mask"
     t.string "address"
     t.date "date_of_birth"
     t.string "state"
@@ -109,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_024651) do
     t.string "company_address"
     t.integer "postcode"
     t.string "company_description"
-    t.integer "abn"
+    t.bigint "abn"
     t.string "state"
     t.index ["user_id"], name: "index_vendors_on_user_id"
   end

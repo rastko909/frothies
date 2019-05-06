@@ -8,7 +8,8 @@
     <div class="card-body">
 
       <h5 class="card-title"><%= beer.title %></h5>
-      <p class="card-text"><strong>Brewer:</strong> <%= beer.vendor.company_name  %></p>
+      <% brewer = beer.vendor.company_name %>
+      <p class="card-text"><strong>Brewer:</strong> <%= link_to brewer, vendor_path(beer.vendor.id), method: :get %></p>
       <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
       <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
       <p class="card-text"><strong>Price:</strong> $<%= beer.price %></p>

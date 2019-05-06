@@ -85,11 +85,18 @@ AWS?
 
 ## 15.Provide User stories for your App.
 
+We created user stories for three users as follows.
+- a buyer
+- a seller (i.e. a microbrewery owner or manager)
+- a site admin.
+
+
+
 ## 16.Provide Wireframes for your App.
 
+
+
 ## 17. Describe the way tasks are allocated and tracked in your project.
-
-
 
 *Communication channel in slack*
 
@@ -145,11 +152,12 @@ We did testing at different levels during the app development.
 
 This included testing as we developed each feature to see how it worked and also trying edge cases each time. For example, when we added authorisation, we tested different logins for different users to check that the authorisation behaved as expected. 
 
-We also deployed to Heroku and tested using 'raise' by entering variables and checking output was as expected.
+We also deployed to Heroku and tested using 'raise' by entering variables and checking output was as expected. For example, after deploying the products home page, we tested that we could create, save and retrieve objects using 
+- e = User.new
+- e.save
+- e.title
 
-
-
-We agreed to use Minitest since it is the default for Ruby libraries
+We agreed to use Minitest for unit testing since it is the default for Ruby libraries and has the inbuilt test files. 
 
 Stress test
 
@@ -364,6 +372,16 @@ At the end of Day 4, we had Stripe working, had added image uploading, and had o
 **Day 5**
 
 
+**Day 6**
+
+Start of Day 6 planning
+- Retro on week 1
+- Go through rubric and identify gaps / priorities for the next few days
+
+
+
+
+Check in
 
 FROM DEFAULT TO UPDATE IF NOT DONE ELSEWHERE
 

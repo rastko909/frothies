@@ -1,2 +1,9 @@
-<h1>Vendors#show</h1>
-<p>Find me in app/views/vendors/show.html.erb</p>
+<h1><%= @vendor.company_name %></h1>
+
+<p>ADDRESS: <br><br>  <%= @vendor.company_address %></p>
+<p>STATE: <br><br>  <%= @vendor.state %></p>
+<p>POSTCODE: <br><br>  <%= @vendor.postcode %></p>
+
+<p>ABN: <br><br>  <%= @vendor.abn %></p>
+
+<p>ABOUT COMPANY: <br><br>  <%= @vendor.company_description %></p>

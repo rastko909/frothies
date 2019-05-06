@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Sign up ASDF</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -21,6 +21,36 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: false %>
+  </div>
+
+    <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, autofocus: false %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postcode %><br />
+    <%= f.text_field :postcode, autofocus: false %>
+  </div>
+
+    <div class="field">
+     <%= f.check_box :is_vendor, {}, true %> <%= f.label :is_vendor, "Sign up as a Brewer?" %>
+  </div>
+
+  <br />
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

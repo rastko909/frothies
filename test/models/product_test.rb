@@ -7,8 +7,12 @@ class ProductTest < ActiveSupport::TestCase
       :description => 'F-ing delicious.',
       :abv => 5.5,
       :price => 6.50,
-      :quantity => 1
+      :quantity => 1,
+      :vendor_id => 2
     })
+    url = 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg'
+    file = open(url)
+    @product.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
   end
 
   def test_title
@@ -30,4 +34,5 @@ class ProductTest < ActiveSupport::TestCase
   def test_quantity
     assert_equal 1, @product.quantity
   end
+
 end

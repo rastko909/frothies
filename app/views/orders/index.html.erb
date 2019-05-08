@@ -1,5 +1,53 @@
-<% @orders.each do |order| %>
-  <p><strong><h4>Order ID: #<%= order.id %></h4></strong></p>
+
+<!-- CHECK IF USER IS VENDOR -->
+<% if current_user.is_vendor? == true %>
+
+  <!-- ORDERS HEADER -->
+  <div class="d-flex h-50 bg-danger text-white align-center justify-content-center vh-10"><h3 id="remove-bottom-margin">Sales</h3></div>
+
+  <!-- CARD CONTAINER -->
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+
+  <% @vendor_orders.each do |order| %>
+
+    <% if @orders_belonging_to_vendor.include?(order.id) %>
+    <!-- START CARD -->
+    <div class="card mt-2" style="width: 25%;">
+
+    <div class="card-header bg-warning">
+      Order ID: #<%= order.id %>
+    </div>
+
+    <div class="card-header">
+      <%= order.user.first_name %> <%= order.user.last_name %>
+    </div>
+
+    <div class="card-header">
+      <%= order.user.address %> <%= order.user.state %> <%= order.user.postcode %>
+    </div>
+
+    <!-- LIST ITEMS IN ORDER -->
+    <% order.order_items.each do |item| %>
+      <% if item.product.vendor_id == current_user.vendor.id %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Product: <%= item.product.title %> </li>
+          <li class="list-group-item">Quantity: <%= item.quantity %></li>
+          <li class="list-group-item">Sale: <%= item.product.price * item.quantity %></li>
+        </ul>
+      <% end %>
+    <% end %>
+
+  </div>
+  <% end %>
+ 
+
+  <% end%>
+
+<% else %>
+
+  <% @orders.each do |order| %>
+    
+    <p><strong><h4>Order ID: #<%= order.id %></h4></strong></p>
     <% @orders_belonging_to_user = order.order_items.where(user_id: current_user.id) %>
     <% @orders_belonging_to_user.each do |orders| %>
       <p><strong>Product: </strong><%= orders.product.title %> - <strong> Quantity: </strong> <%= orders.quantity %></p>
@@ -7,4 +55,6 @@
     <hr>
     <p><strong>Total Price:</strong> $<%= order.total_price %> AUD</p>
     <hr>
+  <% end %>
+
 <% end %>

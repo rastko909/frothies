@@ -27,8 +27,9 @@ class ChargesController < ApplicationController
     @total_price = 0
 
     @order_items.each do |item|
+      @vendor_id = item.product.vendor.id
       @total_price += item.product.price * item.quantity
-      item.update(pending: false)
+      item.update(pending: false, vendor_id: @vendor_id)
       @order.order_items << item
     end
 

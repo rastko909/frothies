@@ -13,7 +13,14 @@
 
 <body>
 
-  <%= render "layouts/shared/navbar" %>
+  <% if current_user == nil %>
+      <%= render "layouts/shared/guest_navbar" %>
+  <% elsif current_user.is_vendor? %>
+      <%= render "layouts/shared/vendor_navbar" %>
+  <% else %>
+      <%= render "layouts/shared/user_navbar" %>
+  <% end %>
+
 
   <div class="container-fluid">
 

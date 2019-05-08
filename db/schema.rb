@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_043717) do
+ActiveRecord::Schema.define(version: 2019_05_08_030211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 2019_05_06_043717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "pending"
+    t.bigint "vendor_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
     t.index ["user_id"], name: "index_order_items_on_user_id"
+    t.index ["vendor_id"], name: "index_order_items_on_vendor_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_043717) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "order_items", "vendors"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "vendors"
   add_foreign_key "vendors", "users"

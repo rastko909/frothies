@@ -6,8 +6,11 @@ class CreateOrderItems < ActiveRecord::Migration[5.2]
       t.references :product
       t.references :user
       t.references :order
+      # testing something
+      # t.references :vendor, index: true
 
       t.timestamps
     end
+    # add_foreign_key :order_items, :vendor, column: :vendor_id
   end
 end

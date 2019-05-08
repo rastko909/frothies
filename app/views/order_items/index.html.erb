@@ -1,9 +1,17 @@
-<h1>Shopping Cart</h1>
+<div class="f-flex flex-column shopping-outer-container">
 
+
+<div class="shopping-cart-header">
+
+<h1>Shopping Cart</h1>
   <% if @order_items.count == 0 %>
     <div><p>Shopping cart is empty, please return to index and select some items.</p></div>
     <br>
   <% end %>
+</div>
+
+
+
 
 <div class="cart-container d-flex flex-row">
 
@@ -69,4 +77,6 @@
 
   </div>
 
-</div
+</div>
+
+</div>

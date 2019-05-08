@@ -16,9 +16,23 @@
 <div class="cart-container d-flex flex-row">
 
   <div class="cart-shipping">
-  
-  <h4>Delivery Address</h4>
 
+  <div>
+    <h4>Customer Details</h4>
+    <strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %>
+    <br>
+    <strong>DOB:</strong> <%= @user.date_of_birth %>
+    <br>
+    <strong>Email:</strong> <%= @user.email %>
+  </div>
+  <br>
+  <div>
+    <h4>Delivery Address</h4>
+    <%= @user.address %>
+    <br>
+    <%= @user.state %>   <%= @user.postcode %>
+    <br>
+  </div>
   
   </div>
 
@@ -48,7 +62,7 @@
         <div class="product-removal">
             <%= link_to 'Delete', order_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' %>
         </div>
-        <div class="product-line-price">25.98</div>
+        <div class="product-line-price"><%= item.product.price * item.quantity %></div>
       </div>
 
       <% end %>
@@ -64,7 +78,7 @@
         </div>
         <div class="totals-item">
           <label>Shipping</label>
-          <div class="totals-value" id="cart-shipping">15.00</div>
+          <div class="totals-value" id="cart-shipping">0</div>
         </div> 
 
         <div class="totals-item totals-item-total">
@@ -72,11 +86,10 @@
           <div class="totals-value" id="cart-total"><%= @total_price + (@total_price / 10) %></div>
         </div>
       </div>
-          <button style="color: white;" class="checkout"><%= link_to 'Checkout', orders_path, method: 'post', style: 'color: white;' %></button>
-    </div>
-
+      <%= render "layouts/shared/stripe_form" %>
   </div>
 
-</div>
+ </div>
 
 </div>
+

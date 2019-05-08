@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
       def configure_permitted_parameters
-          devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :first_name, :last_name, :address, :state, :postcode, :is_vendor])
+          devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :first_name, :last_name, :address, :state, :postcode, :is_vendor, :company_name])
       end
 
       def create_vendor_account

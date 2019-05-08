@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
             @vendors_items_sold << item
           end
         end
+        
       end
 
     end

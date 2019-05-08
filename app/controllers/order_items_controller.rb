@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   def index 
+    @user = User.find(current_user.id)
     @order_items = OrderItem.where(pending: true)
     @total_price = 0
     @order_items.each do |item|

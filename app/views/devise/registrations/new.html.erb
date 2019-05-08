@@ -1,11 +1,17 @@
-<h2>Sign up</h2>
+
+<div class="form-outer-container">
+<div class="sign-up-container">
+<div class="sign-up-header">
+<h1>REGISTER</h1>
+<h3>JOIN US AS A FELLOW FROTHIE!</h3>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div id="first-field" class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter Your Email", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
@@ -13,73 +19,94 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Enter Your Password", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Re-Enter Your Password", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: false %>
+    <%= f.text_field :first_name, autofocus: false, placeholder: "Enter First Name", class: "sign-up-form-box" %>
   </div>
 
     <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: false %>
+    <%= f.text_field :last_name, autofocus: false, placeholder: "Enter Last Name", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: false %>
+    <%= f.text_field :address, autofocus: false, placeholder: "Enter Your Address", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state, autofocus: false %>
+    <%= f.text_field :state, autofocus: false, placeholder: "Enter State", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
     <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autofocus: false %>
+    <%= f.text_field :postcode, autofocus: false, placeholder: "Enter Your Postcode", class: "sign-up-form-box" %>
   </div>
 
   <div class="field">
-     <%= f.check_box :is_vendor, {}, true, id: 'check' %> <%= f.label :is_vendor, "Sign up as a Brewer?" %>
+    <%= f.check_box :is_vendor, {}, true%> <%= f.label :is_vendor, "SIGN UP AS BREWER?" %>
   </div>
 
-  <div class="field">
-    Company Name:<br>
-    <input type="text" name="company_name"><br>
-  </div>
+  <div class="brewer-additional-fields">
+    <div class="field">
+      Company Name:<br>
+      <input type="text" name="company_name" class="sign-up-form-box" placeholder="Enter Company Name"><br>
+    </div>
 
-  <div class="field">
-    Company Description:<br>
-    <input type="text" name="company_description"><br>
-  </div>
+    <div class="field">
+      Company Description:<br>
+      <input type="text" name="company_description" class="sign-up-form-box" placeholder="Enter Company Description"><br>
+    </div>
 
+    <div class="field">
+      Company ABN:<br>
+      <input type="text" name="company_abn" class="sign-up-form-box" placeholder="Enter Company ABN"><br>
+    </div>
 
-  <div class="field">
-    Company Address:<br>
-    <input type="text" name="company_address"><br>
-  </div>
+    <!-- <div class="field">
+      Company Address:<br>
+      <input type="text" name="company_address" class="sign-up-form-box"><br>
+    </div>
 
-  <div class="field">
-    Company State:<br>
-    <input type="text" name="company_state"><br>
-  </div>
+    <div class="field">
+      Company State:<br>
+      <input type="text" name="company_state" class="sign-up-form-box"><br>
+    </div>
 
-  <div class="field">
-    Company Postcode:<br>
-    <input type="text" name="company_postcode"><br>
-  </div>
+    <div class="field">
+      Company Postcode:<br>
+      <input type="text" name="company_postcode" class="sign-up-form-box"><br>
+    </div> -->
+  </div> 
 
-  <br />
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "SIGN UP", class: "form-submit" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
+
+<script>
+const checkBox = document.querySelector('#user_is_vendor')
+const additionalFields = document.querySelector('.brewer-additional-fields')
+console.log(checkBox)
+checkBox.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    additionalFields.style.display = 'block';
+  }
+  else {
+    additionalFields.style.display = 'none';
+  }
+})
+</script>

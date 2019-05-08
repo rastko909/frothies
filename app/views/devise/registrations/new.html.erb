@@ -56,31 +56,37 @@
     <%= f.check_box :is_vendor, {}, true%> <%= f.label :is_vendor, "SIGN UP AS BREWER?" %>
   </div>
 
-  <div class="field">
-    Company Name:<br>
-    <input type="text" name="company_name"><br>
-  </div>
+  <div class="brewer-additional-fields">
+    <div class="field">
+      Company Name:<br>
+      <input type="text" name="company_name" class="sign-up-form-box" placeholder="Enter Company Name"><br>
+    </div>
 
-  <div class="field">
-    Company Description:<br>
-    <input type="text" name="company_description"><br>
-  </div>
+    <div class="field">
+      Company Description:<br>
+      <input type="text" name="company_description" class="sign-up-form-box" placeholder="Enter Company Description"><br>
+    </div>
 
+    <div class="field">
+      Company ABN:<br>
+      <input type="text" name="company_abn" class="sign-up-form-box" placeholder="Enter Company ABN"><br>
+    </div>
 
-  <div class="field">
-    Company Address:<br>
-    <input type="text" name="company_address"><br>
-  </div>
+    <!-- <div class="field">
+      Company Address:<br>
+      <input type="text" name="company_address" class="sign-up-form-box"><br>
+    </div>
 
-  <div class="field">
-    Company State:<br>
-    <input type="text" name="company_state"><br>
-  </div>
+    <div class="field">
+      Company State:<br>
+      <input type="text" name="company_state" class="sign-up-form-box"><br>
+    </div>
 
-  <div class="field">
-    Company Postcode:<br>
-    <input type="text" name="company_postcode"><br>
-  </div>
+    <div class="field">
+      Company Postcode:<br>
+      <input type="text" name="company_postcode" class="sign-up-form-box"><br>
+    </div> -->
+  </div> 
 
   <div class="actions">
     <%= f.submit "SIGN UP", class: "form-submit" %>
@@ -90,3 +96,17 @@
 
 </div>
 </div>
+
+<script>
+const checkBox = document.querySelector('#user_is_vendor')
+const additionalFields = document.querySelector('.brewer-additional-fields')
+console.log(checkBox)
+checkBox.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    additionalFields.style.display = 'block';
+  }
+  else {
+    additionalFields.style.display = 'none';
+  }
+})
+</script>

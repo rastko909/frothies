@@ -3,7 +3,12 @@
 <% if current_user.is_vendor? == true %>
 
   <!-- ORDERS HEADER -->
-  <div class="d-flex h-50 bg-danger text-white align-center justify-content-center vh-10"><h3 id="remove-bottom-margin">Sales</h3></div>
+  <div class="d-flex bg-danger text-white align-center justify-content-center vh-10"><h3 id="remove-bottom-margin">Sales</h3></div>
+  <div class="d-flex align-center justify-content-between vh-10">
+    <div class="sales-col p-20">Total Items Solid: </div>
+    <div class="sales-col p-20">Sales Total: </div>
+    <div class="sales-col p-20"></div>
+  </div>
 
   <!-- CARD CONTAINER -->
   <div class="d-flex flex-row flex-wrap justify-content-around">

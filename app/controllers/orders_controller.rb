@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     if current_user != nil
 
       if current_user.is_vendor? == true 
+
+        @total_sales = 0
         
         @vendor_orders = Order.all
 

@@ -27,6 +27,12 @@
   font-family: 'Quantico', sans-serif;
 }
 
+.profile-table-left {
+  input {
+    width: 100%;
+  }
+}
+
 .container-fluid {
   margin: 0px;
   padding: 0px;
@@ -65,6 +71,10 @@ body {
 #force-width {
   //  border: 1px solid red;
   width: 33% !important;
+}
+
+.sales-col {
+  padding: 10px;
 }
 
 .navbar {
@@ -155,10 +165,11 @@ body {
   width: 100%;
   background: $limegreen;
   color: rgba(0, 0, 0, 0.527);
-  font-family: 'Prata', serif;
+  font-family: 'Quantico', sans-serif !important;
   font-size: 1.6vh;
   padding-left: 5px;
   border: 2px $turtlegreen solid;
+
 }
 
 label {
@@ -176,13 +187,20 @@ label {
 
 .form-submit {
   width:  100%;
-}
-
-.form-submit {
   background: $turtlegreen;
   border: solid $turtlegreen 1px;  
   font-size: 2vh;
   height: 45px;
+  color: white;
+}
+
+.form-cancel {
+  width:  100% !important;
+  background: red;
+  border: red; 
+  font-size: 2vh;
+  height: 45px;
+  color: white;
 }
 
 .brewer-additional-fields {

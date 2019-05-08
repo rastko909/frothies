@@ -81,9 +81,9 @@ body {
   height: 4.5rem !important;
 }
 
-#remove-bottom-margin {
-  margin-bottom: 0;
-}
+ #remove-bottom-margin {
+   margin-bottom: 0 !important;
+ }
 
 .navbar-nav > li {
   display: flex;

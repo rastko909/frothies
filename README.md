@@ -52,20 +52,30 @@ For the buyers in our marketplace, the project will provide a convenient online 
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
-We implemented Postgresql why? 
+Although the default database for Rails apps is MySQL, we followed the recommendation from staff to use PostgreSQL since it works better with Heroku. Postgres is native to Heroku while MySQL requires workarounds. A quote from a Heroku blog states 'At Heroku, we believe PostgreSQL offers the best mix of powerful features, data integrity, speed, standards compliance, and open-source code of any SQL database on the planet.' 
+
+Source of quote: https://blog.heroku.com/postgresql9-public-beta
 
 ## 7. Identify and describe the production database setup (i.e. postgres instance).
 
+We used the default settings for almost all of the database setup. This meant it was, as per Ruby on Rails apps, running off Rack. Rack is a middleware that executes our Ruby code, starting with reading and running the config.ru file (.ru being a naming convention for Rack files). We changed two settings for production (i.e. in our production.rb file). 
 
+Firstly, we set our storage for images to be Amazon so we could use cloud-based storage via S3 for some of our images. We included these details in the storage.yml file. 
+
+Secondly,xxx? 
 
 ## 8. Describe the architecture of your App.
 
-
+MVC
 
 ## 9.Explain the different high-level components (abstractions) in your App.
 
+Our app is built on Rails, a Domain Specific Language (DSL) which is itself written in Ruby. For the computer to understand our Ruby on Rails app, Ruby is translated into C, a low-level language, low-level being a language with less abstraction that is closer to machine code. C is then translated into Assembly, which then translates into the binary that the machine needs to run it. 
+
+One significant level of abstraction in Rails is the routes. The routes allow our app to match requests (e.g. GET, POST) to an action in the controller. Ultimately, this will direct the user to a URL, and because of this abstraction, we are not required to hard code the URLs or routes as strings.
 
 
+ 
 ## 10.Detail any third party services that your App will use.
 
 Devise?
@@ -146,6 +156,12 @@ We used the concept of User stories and User story mapping but we didn't strictl
 
 ## 19. Provide an overview and description of your Source control process.
 
+From day 1, all group members set up a local branch for Github repository, Frothies.
+
+The group agreed that each time changes made worked locally (e.g. features were added or models changed), we pushed to Github from our local branch and created a pull request then merged to Master branch. Other group members would then pull the master and merge master for their local copy of the app. 
+
+Approval was always agreed on between the three group members for this process. Confirming the merge was sometimes a different person to the person that pushed the changes to Github, but in some cases when we were all together, it may have been the person who pushed to Github creating the pull request and confirming. 
+
 ## 20. Provide an overview and description of your Testing process.
 
 We did testing at different levels during the app development. 
@@ -157,12 +173,21 @@ We also deployed to Heroku and tested using 'raise' by entering variables and ch
 - e.save
 - e.title
 
-We agreed to use Minitest for unit testing since it is the default for Ruby libraries and has the inbuilt test files. 
+We agreed to use Minitest for unit testing since it is the default for Ruby libraries and has the inbuilt test files. We did one set of testing around product, since this was our main component on the app. 
 
-Stress test
+We received one error to do with 'image_url' and tried several strategies to get rid of it (deleting the relation 'has_one_attached' from the products model, manually editing the image_url when seeding, xxx ), none of which removed the errror. As this was the only error we were getting and the app was still deploying successfully, we agreed to move on. 
 
+*Screenshot of product test*
+
+![Screenshot of unit testing](images/Day&#32;5/RA_Testing.png)
+
+*Screenshot of testing error*
+
+![Screenshot of test error](images/Day&#32;5/RA_TestingError.png)
 
 ## 21. Discuss and analyse requirements related to information system security.
+
+
 
 ## 22. Discuss methods you will use to protect information and data.
 
@@ -171,6 +196,7 @@ Stress test
 The Privacy Act 1988 regulates the management, storing, access and correction of personal information about individuals is handled by APP entities. Business with an annual turnover of more than $3 million, health service providers and those who trade in personal information for benefit, service or advantage are considered an APP entity and are covered by the Privacy Act 1988.
 Our app does not fall under these categories and therefore do not have responsibilities under the Privacy Act.
 However, under the Section 6EA of the Privacy Act, we could decide to opt-in and be covered by the Privacy Act as a public commitment to good privacy practice. Operating under the Privacy Act may result in an increase in customer confidence and trust in the business.
+
 
 # Day 1
 
@@ -375,6 +401,16 @@ At the end of Day 4, we had Stripe working, had added image uploading, and had o
 
 **Day 5**
 
+*Day 5 planning*
+
+![Screenshot of Trello board at start of day 5]
+
+
+*Trello at end of day 5*
+
+
+
+![Screenshot of Trello board at end of day 5]
 
 **Day 6**
 
@@ -382,29 +418,119 @@ Start of Day 6 planning
 - Retro on week 1
 - Go through rubric and identify gaps / priorities for the next few days
 
+We wanted to start day 6 by re-evaluating where we were at and also making sure everyone was on the same page in terms of understanding the data structure and code, as shown in the picture of our Trello card below.
 
+![Screenshot of Trello card, start of day 6]()
 
+![Screenshot of Trello board at start of day 6](images/Day&#32;6/RA_Trello_StartOfDay6.png)
 
-Check in
+We started the day by completing a retrospective on the past week. We did a two minute ideation on 'What worked well' then discussed each item (picture of board below).
 
-FROM DEFAULT TO UPDATE IF NOT DONE ELSEWHERE
+*Photo of retro—what worked well*
 
-Things you may want to cover:
+![Photo of retrospective—what worked well](images/Day&#32;6/RA_Retro_Good.jpg)
 
-* Ruby version
-UPDATE
-* System dependencies
-UPDATE
-* Configuration
-UPDATE
-* Database creation
-UPDATE
-* Database initialization
-UPDATE
-* How to run the test suite
-UPDATE
-* Services (job queues, cache servers, search engines, etc.)
-LEAVE?
-* Deployment instructions
-UPDATE
-* ...
+In general, we agreed that a lot of the MVP features had gone well, as had our communication and planning.
+
+Next, we did a two minute ideation on 'What didn't work well', and went through those individually (picture of board below).
+
+*Photo of retro—what to improve*
+
+![Photo of retrospective—what to improve](images/Day&#32;6/RA_Retro_Improve.jpg)
+
+We identified some similar and some different challenges. We agreed that we needed to put more time into answering short answer questions, based on the length of time they had taken in week 1. 
+
+Finally, we discussed how we could shift or solve all of the challenges that came up in our 'What didn't work well' ideation. 
+
+*Photo of retro—solutions*
+
+![Photo of retrospective—solutions](images/Day&#32;6/RA_Retro_Solutions.jpg)
+
+We prioritised technical challenges in our workflow for day 6 and 7, and agreed to go over how MVC is working in the app to make sure we all understood the code we hadn't worked on. 
+
+Revision of ERD
+
+Rastko wanted to test Gwenny and Jieyi on how well they understood the ERD since he had designed the bulk of it. We drew the ERD as we understood it (most important relations, see first picture below), and afterwards, he talked us through his understanding afterwards (see second picture below).
+
+*Gwenny and Jieyi's ERD*
+
+![Drawing on board of ERD](images/Day&#32;6/RA_ERD1.jpg)
+
+*Rastko explaining how he saw our ERD*
+
+![Rastko explaining ERD](images/Day&#32;6/RA_ERD_R.jpg)
+
+*Rastko's explanation of ERD*
+
+![Drawing on board of second ERD](images/Day&#32;6/RA_ERD2.jpg)
+
+*Trello in middle of day 6*
+
+![Screenshot of Trello board at middle of day 6](images/Day&#32;6/RA_Trello_MiddleOfDay6.png)
+
+Check in at end of day 6
+
+At the end of day 6, we went over what had been completed for the day and what we aimed to do next, as shown in the image of the Trello card below. We agreed we wanted to have a 'shippable' product by Friday, and planned to do products, design and still some work on user flow.
+
+*Trello cards at end of day 6*
+
+*Tasks completed:*
+
+![Screenshot of Trello card at end of day 6](images/Day&#32;6/RA_Trello_EndOfDay6.png)
+
+**Day 7**
+
+*Morning of Day 7 planning*
+
+We checked in in the morning as RB had done work overnight. He had improved the user flow and added more functionality. 
+
+*Trello card at start of day 7*
+
+![Screenshot of plan at start of day 7](images/Day&#32;7/RA_Trello_Day7Planning.png)
+
+Gwenny wrote copy for our 3 microbreweries for Rastko to include on brewer profile views (see screenshot) then trialled adding a search button to the site using bootstrap. It was difficult styling bootstrap and unpacking previous code (see screenshot below of testing). 
+
+*Screenshot of copy for microbreweries*
+
+![Screenshot of copy writing for microbrewery profiles](images/Day&#32;7/RA_Copy_Breweries.png)
+
+*Screenshot of testing design with search box*
+
+![Screenshot of red boxes for testing CSS](images/Day&#32;7/RA_Navbar_Styling.png)
+
+Jieyi finalised bottle design for individual products including branding for each microbrewery. 
+
+*Screenshot of product designs for microbreweries*
+
+![Screenshot of products designed in Figma](images/Day&#32;7/Can&#32;Design.png)
+
+![Screenshot of products designed in Figma](images/Day&#32;7/Can&#32;Design&#32;Process&#32;2.png)
+
+**Day 8**
+
+*Morning of Day 8 planning*
+
+In the morning of Day 8, we started with a drop down menu that Rastko had added in last night. We agreed he would continue refining user flow and adding our features for vendors like:
+- marking an order as shipped
+- sending an email verification from Frothies to users after payment
+- sending an email to users from a vendor when order shipped
+
+*Screenshot of Day 8 plan*
+
+![Screenshot of Trello card for day 8 plan](images/Day&#32;8/RA_Trello_Day8Plan.png)
+
+*Screenshot of Trello board at start of day 8*
+
+![Screenshot of Trello board at start of day 8](images/Day&#32;8/RA_Trello_StartOfDay8.png)
+
+Jieyi will continue with designing products (see screenshot) then UI of the site. We tried several designs e.g. with logo at top, at bottom, with block colour background, and then Jieyi designed as she felt worked.
+
+Gwenny wrote copy for the 12 individual products (see screenshot). We agreed on having a short description for cards and a longer description in case we get a product view implemented that allows more text. We also added one product for one brewery, so there were 13 products in total.
+
+*Screenshot of an extract of copy written for products*
+
+![Screenshot of copy writing for products](images/Day&#32;8/RA_Copy_Products.png)
+
+*Designing product looks (including drink names and logo for brewery)*
+
+![Screenshot of products in Figma](images/Day&#32;8/RA_Fig_Products_Day8.png)

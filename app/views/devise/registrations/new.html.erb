@@ -1,4 +1,4 @@
-<h2>Sign up ASDF</h2>
+<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -46,8 +46,34 @@
     <%= f.text_field :postcode, autofocus: false %>
   </div>
 
-    <div class="field">
-     <%= f.check_box :is_vendor, {}, true %> <%= f.label :is_vendor, "Sign up as a Brewer?" %>
+  <div class="field">
+     <%= f.check_box :is_vendor, {}, true, id: 'check' %> <%= f.label :is_vendor, "Sign up as a Brewer?" %>
+  </div>
+
+  <div class="field">
+    Company Name:<br>
+    <input type="text" name="company_name"><br>
+  </div>
+
+  <div class="field">
+    Company Description:<br>
+    <input type="text" name="company_description"><br>
+  </div>
+
+
+  <div class="field">
+    Company Address:<br>
+    <input type="text" name="company_address"><br>
+  </div>
+
+  <div class="field">
+    Company State:<br>
+    <input type="text" name="company_state"><br>
+  </div>
+
+  <div class="field">
+    Company Postcode:<br>
+    <input type="text" name="company_postcode"><br>
   </div>
 
   <br />

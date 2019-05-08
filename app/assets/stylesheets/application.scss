@@ -18,10 +18,22 @@
 @import 'charges.scss';
 @import 'orders.scss';
 @import 'vendors.scss';
-@import 'order_items.scss';
+@import './order_items.scss';
 
 
 @import url('https://fonts.googleapis.com/css?family=Quantico');
+
+
+
+.customer-details-box h3 {
+  color: #449944;
+}
+
+#force-image-height {
+  width: 100%;
+  height: 20vw;
+  // object-fit: cover;
+}
 
 * {
   font-family: 'Quantico', sans-serif;
@@ -81,9 +93,9 @@ body {
   height: 4.5rem !important;
 }
 
- #remove-bottom-margin {
-   margin-bottom: 0 !important;
- }
+#remove-bottom-margin {
+  margin-bottom: 0 !important;
+}
 
 .navbar-nav > li {
   display: flex;
@@ -127,7 +139,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px;
+  margin: 0px;  
 }
 
 .sign-up-container {
@@ -138,6 +150,8 @@ body {
   height: 100%;
   width: 525px;
   border: 2px black solid;
+  background: white;
+  margin-bottom: 10px;
 }
 
 .sign-up-header {
@@ -154,11 +168,14 @@ body {
   height: 35px;
   width: 100%;
   background: $limegreen;
-  color: rgba(0, 0, 0, 0.527);
-  font-family: 'Prata', serif;
+  font-family: 'Quantico', sans-serif;
   font-size: 1.6vh;
   padding-left: 5px;
   border: 2px $turtlegreen solid;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.527) !important;
 }
 
 label {
@@ -183,12 +200,48 @@ label {
   border: solid $turtlegreen 1px;  
   font-size: 2vh;
   height: 45px;
+  color: white;
 }
 
-.brewer-additional-fields {
+.additional-fields {
   display: none;
 }
 
 input[type="check_box"]:checked ~ .brewer-additional-fields{
   // display: block;
+}
+
+// Log In Page
+
+.login-outer-container {
+  height: calc(100vh - 4.5rem);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px; 
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 525px;
+  border: 1px solid black;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  padding-top: 20px;
+  width: 100%;
+  background-color: $brightorange;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

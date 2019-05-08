@@ -4,18 +4,22 @@ class OrdersController < ApplicationController
     if current_user != nil
 
       if current_user.is_vendor? == true 
-        @order_items = OrderItem.where(pending: false)
-        @vendors_items_sold = []
-        @order_items.each do |item|
-          if item.product.vendor.id == current_user.vendor.id 
-            @vendors_items_sold << item
+        
+        @vendor_orders = Order.all
+
+        @vendor_order_items = OrderItem.where(pending: false, vendor_id: current_user.vendor.id)
+
+        @orders_belonging_to_vendor = []
+
+        @vendor_order_items.each do |item|
+          if item.vendor.id == current_user.vendor.id 
+            @orders_belonging_to_vendor << item.order.id
           end
         end
-        
+
       end
 
     end
-    
     @orders = current_user.orders
   end
 

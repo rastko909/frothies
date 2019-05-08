@@ -24,57 +24,32 @@
           <a style="padding: 0;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div id="force-align">
               <i id="big-icon" class="fas fa-user"></i>
-                <% if current_user == nil %>
-                  <p id="remove-bottom-margin">Guest</p>
-                <% else %>
-                  <p id="remove-bottom-margin"><%= current_user.first_name %></p>
-                <% end %>
+                  <p id="remove-bottom-margin"><%= current_user.vendor.company_name %></p>
           </div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <% if current_user == nil %>
-            <%= link_to 'Sign In', new_user_session_path, class: 'dropdown-item' %>
-            <%= link_to 'Create Account', new_user_registration_path, class: 'dropdown-item' %>
-          <% end %>
-          <% if current_user != nil %>
-          
-            <% if current_user.is_vendor? %>
-              <%= link_to 'Company Profile', edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to 'Orders', orders_path, class: 'dropdown-item' %>
-            <% end %>
-           <% if current_user.is_vendor? == false && current_user.is_admin? == false %>
             <%= link_to 'Profile', edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to 'Order History', orders_path, class: 'dropdown-item' %>
-          <% end %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'dropdown-item' %>
 
-          <% end %>
-
-          <% if current_user != nil %>
-             <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'dropdown-item' %>
-          <% end %>
         </div>
 
         </li>
 
         <li class="nav-item p-2">
-        <div id="force-align">
-          <%= link_to order_items_path, method: 'get', class: 'nav-link', id: 'force-align' do %>
-              <i style="color: black;" id="big-icon" class="fas fa-shopping-cart"></i>
-              <p id="remove-bottom-margin">
-                Cart (<%= count_items_in_cart %>)
-              </p> 
+          <%= link_to orders_path, method: 'get', class: 'nav-link', id: 'force-align' do %>
+              <i style="color: black;" id="big-icon"  class="fas fa-list"></i>
+              <p id="remove-bottom-margin">Orders</p> 
           <% end %>
-          </div>
         </li>
 
-        <% if user_signed_in? %>
           <li class="nav-item p-2">
           <%= link_to destroy_user_session_path, method: 'delete', class: 'nav-link', id: 'force-align' do %>
             <i id="big-icon" class="fas fa-sign-out-alt"></i>
             <p id="remove-bottom-margin">Sign Out</p>
-        <% end %>
+          <% end %>
         </li>
-        <% end %>
+        
       </ul>
 
   </nav>

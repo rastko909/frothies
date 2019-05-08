@@ -1,9 +1,26 @@
 class OrdersController < ApplicationController
+
   def index
-    @orders = Order.all 
+    if current_user != nil
+
+      if current_user.is_vendor? == true 
+        @order_items = OrderItem.where(pending: false)
+        @vendors_items_sold = []
+        @order_items.each do |item|
+          if item.product.vendor.id == current_user.vendor.id 
+            @vendors_items_sold << item
+          end
+        end
+        
+      end
+
+    end
+    
+    @orders = current_user.orders
   end
 
   def create
+    @user = User.find(current_user.id)
     @order = Order.new(user_id: current_user.id)
     @order_items = OrderItem.where(user_id: current_user.id, pending: true)
     @total_price = 0
@@ -13,7 +30,7 @@ class OrdersController < ApplicationController
       @order.order_items << item
     end
     
-    @order.update(total_price: @total_price)
+    @order.update(total_price: @total_price, completed: false)
 
     if @order.save
       render :show
@@ -41,6 +58,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = OrderItem.find(user_id: current_user.id)
+    @user = User.find(current_user.id)
   end
 
   private

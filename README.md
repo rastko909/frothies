@@ -168,6 +168,10 @@ Stress test
 
 ## 23. Research what your legal obligations are in relation to handling user data.
 
+The Privacy Act 1988 regulates the management, storing, access and correction of personal information about individuals is handled by APP entities. Business with an annual turnover of more than $3 million, health service providers and those who trade in personal information for benefit, service or advantage are considered an APP entity and are covered by the Privacy Act 1988.
+Our app does not fall under these categories and therefore do not have responsibilities under the Privacy Act.
+However, under the Section 6EA of the Privacy Act, we could decide to opt-in and be covered by the Privacy Act as a public commitment to good privacy practice. Operating under the Privacy Act may result in an increase in customer confidence and trust in the business.
+
 # Day 1
 
 **Morning plan**

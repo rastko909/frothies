@@ -24,15 +24,28 @@
 @import url('https://fonts.googleapis.com/css?family=Quantico');
 
 
+.product-index {
+  flex-direction: row;
+}
+
+.buy-buttons {
+  flex-direction: row;
+}
+
+#shopping-item-image {
+  height: 80px;
+  width: 80px;
+  object-fit: scale-down;
+}
 
 .customer-details-box h3 {
   color: #449944;
 }
 
-#force-image-height {
+.card-img-top {
   width: 100%;
   height: 20vw;
-  // object-fit: cover;
+  object-fit: scale-down;
 }
 
 * {
@@ -258,4 +271,17 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .product-index {
+    flex-direction: column;
+  }
+  .buy-buttons {
+    border: 1px solid red;
+    flex-direction: column;
+    margin-bottom: 20px !important;
+  }
+
 }

@@ -18,13 +18,30 @@
 @import 'charges.scss';
 @import 'orders.scss';
 @import 'vendors.scss';
-@import './order_items.scss';
+@import 'order_items.scss';
 
 
 @import url('https://fonts.googleapis.com/css?family=Quantico');
 
 .customer-details-box h3 {
   color: #449944;
+}
+
+.shopping-cart {
+  margin-top: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 1rem;
+  background-color: $dirtyorange;
+}
+
+.totals {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4; 
+  padding: 1rem;
+  background-color: $dirtyorange;
 }
 
 #force-image-height {
@@ -198,7 +215,7 @@ body {
 ::placeholder {
   color: rgba(0, 0, 0, 0.527) !important;
   word-wrap: break-word;
-
+  
 }
 
 label {

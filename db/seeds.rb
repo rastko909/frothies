@@ -11,78 +11,135 @@ puts 'created admin'
 
 # -------------------------------------------
 
-# we have to create a user before creating a vendor
+# create Castles
 
-vendor_account = User.create(email: 'vendor@gmail.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'John', last_name: 'Doe')
-vendor = Vendor.new(company_name: 'Beer Master Beers', sales_total: 0, user_id: vendor_account.id)
-vendor.save
-
-puts 'created vendor 1'
-
-# -------------------------------------------
-
-# create furphy
-
-company_desc = "Furphy is a refreshing ale that is Geelong born and brewed from 100% Victorian hops & malt. Given our Geelong brewery used to be an old wool will, it's no surprise Furphy is an easy-drinking ale that's perfect for a session of yarn spinning."
+company_desc = "Castles in the Sky microbrewery was started by sisters Victoria and Nova Castle five years ago. Having grown up in Mornington Peninsula, they always loved the taste and the art of making craft beer. After visiting the US and learning to make brews like Boston Lager and Vanilla Porter from the best, the sisters bought an old farm and made their castle in the sky dream a reality."
 
 p company_desc 
 
-vendor_account = User.create(email: 'furphy@gmail.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Jane', last_name: 'Watson')
+vendor_account = User.create(email: 'castles@inthesky.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Victoria', last_name: 'Castle')
 
-vendor = Vendor.new(company_name: 'Furphy', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '264-270 Normanby Rd, South Melbourne', state: 'VIC', postcode: 3323, abn: 51824753556)
+vendor = Vendor.new(company_name: 'Castles In The Sky', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '1 Industry Way, Mornington', state: 'VIC', postcode: 3931  , abn: 51824753556)
 vendor.save 
 
 p vendor
 
-puts 'created vendor 2: furphy@gmail.com'
+puts 'created vendor 1: castles@inthesky.com'
 
-# create carlton
+# -------------------------------------------
 
-company_desc = "The Pub. The last bastion of real mateship and a sacred place where life’s big questions, such as the footy score, are resolved. It also happens to be the place where Carlton was born to be enjoyed at its best and freshest.
- 
-Our proud tradition of brewery fresh beer dates back to 1864. This was when the first batch of Carlton was delivered to pubs in the local area by the same Clydesdales that grace our taps, glasses and packs today."
+# create Unicorn
 
-vendor_account = User.create(email: 'carlton@gmail.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Bob', last_name: 'Bob')
+company_desc = "Unicorn started out as a hobby for high-school friends Jason Bourne, Sarah Richardson and Brendan James. But what was an innocent hobby took over their lives and became their passion and full time business. Hailing from WA, the trio make a mean IPA which has won them awards around the nation. They’ve since expanded their range of frothies to include Pale Ale, Red Ale and a Milk Stout."
 
-vendor = Vendor.new(company_name: 'Carlton', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, state: 'VIC', postcode: 3113, abn: 51824751337)
+p company_desc 
+
+vendor_account = User.create(email: 'info@unicorn.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Jason', last_name: 'Bourne')
+
+vendor = Vendor.new(company_name: 'Unicorn Brewery', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '1 Industry Way, Mornington', state: 'SA', postcode: 5008, abn: 51824751337)
 vendor.save 
 
-puts 'created vendor 3: carlton@gmail.com'
+p vendor
+
+puts 'created vendor 2: info@unicorn.com'
+
+# -------------------------------------------
+
+# create The Dude
+
+company_desc = "The Dude is the brainchild of husband and wife team, James and Olga Pantsall. The couple decided to settle in Adelaide, South Australia, after Olga’s biochemistry research on vineyards took them across the world and back. Avid lovers of beer, the couple transferred their knowledge on wine to beer and have been living the dream ever since.  Of course, the Dude abides."
+
+p company_desc 
+
+vendor_account = User.create(email: 'info@thedude.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Olga', last_name: 'Pantsall')
+
+vendor = Vendor.new(company_name: 'The Dude', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '14-4 Collingwood St, Osborne Park ', state: 'WA', postcode: 6017, abn: 51812751323)
+vendor.save 
+
+p vendor
+
+puts 'created vendor 3: info@thedude.com'
 
 # # ------------------------------
 
 dob = Date.parse('27/01/1988')
-customer = User.create(email: 'customer@gmail.com', password: 'password123', is_admin: false, is_vendor: false, first_name: 'Joe', last_name: 'Johnson', address: '3 Chatsworth Court, Springvale South', date_of_birth: '27/01/1988', state: 'VIC', postcode: 3172)
+customer = User.create(email: 'customer@gmail.com', password: 'password123', is_admin: false, is_vendor: false, first_name: 'Joe', last_name: 'Johnson', address: '8 Chatsworth Court, Springvale South', date_of_birth: '27/01/1988', state: 'VIC', postcode: 3172)
 customer.save
 
 puts 'created customer'
 
-# puts '----------------'
+# # ------------------------------
 
-# puts 'creating products'
+puts 'creating products'
 
-beer = Product.create(title: 'Furphy', description: 'Delicious Beer', category: 'Pale Ale', abv: 4.5, price: 4.50, quantity: 24, vendor_id: 2)
+# castle products
 
-url = 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg'
+beer = Product.create(title: 'Castles in the Sky: APA', description: 'Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'American Pale Ale', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 1)
+url = 'https://i.imgur.com/4emFJCd.jpg'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
-puts 'created furpy beer, belongs to vendor_id: 2'
 
-# beer = Product.create(title: 'Furphy Lite', description: 'Delicious Lite Beer', category: 'Pale Ale', abv: 4.5, price: 5.50, quantity: 12, vendor_id: 2)
-# url = 'https://www.beerandbrewer.com/wp-content/uploads/sites/2/2017/03/Furphy-Can-768x576.jpg'
-# file = open(url)
-# beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
-# puts 'created furpy lite beer, belongs to vendor_id: 2'
-
-beer2 = Product.create(title: 'Carlton', description: 'Sensational Beer', category: 'Lager', abv: 4.7, price: 3.50, quantity: 24, vendor_id: 3)
-url = 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306'
+beer = Product.create(title: 'Castles in the Sky: Golden Ale', description: 'Fruity and tropical, best enjoyed on a beach or at the end of a long day.', category: 'Golden Pale Ale', abv: 4.5, price: 2.20, quantity: 144, vendor_id: 1)
+url = 'https://i.imgur.com/N00axy1.png'
 file = open(url)
-beer2.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
-puts 'created carlton beer, belongs to vendor_id: 3'
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
 
-# beer2 = Product.create(title: 'Carlton Fresh', description: 'Just like Carlton on tap, for you to enjoy at home!', category: 'Lager', abv: 4.7, price: 6.50, quantity: 6, vendor_id: 3)
-# url = 'https://cdn.shopify.com/s/files/1/0076/2868/5378/files/homepage_feature_1728x.jpg?v=1550122306'
-# file = open(url)
-# beer2.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
-# puts 'created carlton fresh beer, belongs to vendor_id: 3'
+beer = Product.create(title: 'Castles in the Sky: IPA', description: 'Full-flavoured IPA with hints of passionfruit thanks to our Aussie Galaxy hops.', category: 'Imperial Pale Ale', abv: 6.0, price: 1.90, quantity: 144, vendor_id: 1)
+url = 'https://i.imgur.com/Q8MLncz.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+beer = Product.create(title: 'Castles in the Sky: Amber Ale', description: ' Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Amber Ale', abv: 5.0, price: 2.10, quantity: 144, vendor_id: 1)
+url = 'https://i.imgur.com/y5ZiF19.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+# unicorn products
+
+beer = Product.create(title: 'Unicorn: IPA', description: 'Fruity and bitter with a sparkling, copper hue.', category: 'Imperial Pale Ale', abv: 5.8, price: 2.50, quantity: 144, vendor_id: 2)
+url = 'https://i.imgur.com/Cz88dMy.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+beer = Product.create(title: 'Unicorn: Pale Ale', description: 'Conditioned in the bottle naturally, our pale ale is gold both literally and metaphorically..', category: 'Pale Ale', abv: 4.5, price: 2.00, quantity: 144, vendor_id: 2)
+url = 'https://i.imgur.com/2prUrIt.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+
+beer = Product.create(title: 'Unicorn: Cherry Ale', description: 'Crimson, complex and aromatic. Enjoy now or aged.', category: 'Cherry Ale', abv: 6.5, price: 2.90, quantity: 144, vendor_id: 2)
+url = 'https://i.imgur.com/E7cuTtX.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+
+beer = Product.create(title: 'Unicorn: Stout', description: 'Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Stout', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 2)
+url = 'https://i.imgur.com/BtDCvye.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+# dude products
+
+beer = Product.create(title: 'The Dude: IPA', description: 'You’ll love this one when you need a long drink. Strong on the booze but light and floral on the tongue.', category: 'Imperial Pale Ale', abv: 8.5, price: 2.90, quantity: 144, vendor_id: 3)
+url = 'https://i.imgur.com/kXpHTOq.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+
+beer = Product.create(title: 'The Dude: Gluten-Free Pale Ale', description: 'Has a tart taste mingling with the bitterness and floral hints.', category: 'Pale Ale', abv: 4.5, price: 2.00, quantity: 144, vendor_id: 3)
+url = 'https://i.imgur.com/D1Euutp.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+
+beer = Product.create(title: 'The Dude: Witbier', description: 'Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Belgian Wheat Beer', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 3)
+url = 'https://i.imgur.com/WclAmBp.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
+beer = Product.create(title: 'The Dude: Dubbel', description: 'Orange peely vibe with a hint of spice. Keeps it real.', category: 'Belgian Brown Beer', abv: 5.5, price: 2.10, quantity: 144, vendor_id: 3)
+url = 'https://i.imgur.com/Ehr0qtq.png'
+file = open(url)
+beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
+
 

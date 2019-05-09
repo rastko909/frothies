@@ -6,9 +6,11 @@
 <h3>JOIN US AS A FELLOW FROTHIE!</h3>
 </div>
 
+<div class="sign-up-bottom-box">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="error-box">
   <%= render "devise/shared/error_messages", resource: resource %>
-
+</div>
   <div id="first-field" class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter Your Email", class: "sign-up-form-box" %>
@@ -79,7 +81,7 @@
   </div>
 <% end %>
 <%= render "devise/shared/links" %>
-
+</div>
 </div>
 </div>
 

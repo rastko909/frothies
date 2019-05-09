@@ -1,107 +1,101 @@
 <div class="form-outer-container">
+  <div class="sign-up-container">
+    <div class="sign-up-header">
+    <h2>Edit Profile</h2>
+    </div>
 
-<div class="sign-up-container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="sign-up-header">
-<h2>Edit Profile</h2>
-</div>
+      <div class="field" id="first-field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-form-box" %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-form-box" %>
-  </div>
+      <div class="field">
+        <input type="checkbox" id="checkbox-password">  Change Password?
+        <br>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="additional-fields">
+        <div class="field">
+          <%= f.label :password %> <br> <i style="font-size: 0.7rem;">(Leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "sign-up-form-box" %>
+          <% if @minimum_password_length %>
+            <br />
+          <% end %>
+        </div>
 
-    <div class="field">
-   <input type="checkbox" id="checkbox-password">  Change Password?
-   <br>
-  </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-form-box" %>
+        </div>
+      </div>
 
-  <div class="additional-fields">
 
-  <div class="field">
-    <%= f.label :password %> <br> <i style="font-size: 0.7rem;">(Leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "sign-up-form-box" %>
-    <% if @minimum_password_length %>
-      <br />
+      <div class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: false, class: "sign-up-form-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: false, class: "sign-up-form-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %><br />
+        <%= f.text_field :address, autofocus: false, class: "sign-up-form-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :state %><br />
+        <%= f.text_field :state, autofocus: false, class: "sign-up-form-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :postcode %><br />
+        <%= f.text_field :postcode, autofocus: false, class: "sign-up-form-box" %>
+      </div>
+
+      <% if current_user.is_vendor? %>
+        <div class="field">
+          Company Name:<br>
+          <input type="text" name="company_name" class="sign-up-form-box" placeholder="<%= current_user.vendor.company_name %>"><br>
+        </div>
+
+        <div class="field">
+          Company ABN:<br>
+          <input type="text" name="company_abn" class="sign-up-form-box" placeholder="<%= current_user.vendor.abn %>"><br>
+        </div>
+
+        <div class="field">
+          Company Description:<br>
+          <textarea rows="4" cols="100" name="company_description" class="sign-up-form-box" id="description-box" placeholder="<%= current_user.vendor.company_description %>"></textarea><br>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :current_password %> <br> <i style="font-size: 0.7rem;">(Enter current password to confirm changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "sign-up-form-box" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: "form-submit" %>
+      </div>
+
     <% end %>
+    <br>
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: 'background: red;', class: "form-cancel"  %>
+
+    <%= link_to "Back", :back %>
+
   </div>
-
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-form-box" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <br> <i style="font-size: 0.7rem;">(Enter current password to confirm changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "sign-up-form-box" %>
-  </div>
-  </div>
-
-
-    <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: false, class: "sign-up-form-box" %>
-    </div>
-
-    <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: false, class: "sign-up-form-box" %>
-    </div>
-
-    <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: false, class: "sign-up-form-box" %>
-    </div>
-
-    <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state, autofocus: false, class: "sign-up-form-box" %>
-    </div>
-
-    <div class="field">
-    <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autofocus: false, class: "sign-up-form-box" %>
-    </div>
-
-    <% if current_user.is_vendor? %>
-
-      
-    <div class="field">
-      Company Name:<br>
-      <input type="text" name="company_name" class="sign-up-form-box" placeholder="<%= current_user.vendor.company_name %>"><br>
-    </div>
-
-    <div class="field">
-      Company ABN:<br>
-      <input type="text" name="company_name" class="sign-up-form-box" placeholder="<%= current_user.vendor.abn %>"><br>
-    </div>
-
-    <div class="field">
-      Company Description:<br>
-      <input type="textarea" name="company_description" class="sign-up-form-box" placeholder="<%= current_user.vendor.company_description %>"><br>
-    </div>
-
-  <% end %>
-
-    <div class="actions">
-      <%= f.submit "Update", class: "form-submit" %>
-    </div>
-
-<% end %>
-<br>
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: 'background: red;', class: "form-cancel"  %>
-
-<%= link_to "Back", :back %>
-
-
+</div>
 
 <script>
 const checkBox = document.querySelector('#checkbox-password')

@@ -23,8 +23,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Quantico');
 
-
-
 .customer-details-box h3 {
   color: #449944;
 }
@@ -32,7 +30,7 @@
 #force-image-height {
   width: 100%;
   height: 20vw;
-  // object-fit: cover;
+  object-fit: cover;
 }
 
 * {
@@ -172,6 +170,7 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding-top: 15px;
 }
 
 .sign-up-form-box {
@@ -185,8 +184,21 @@ body {
   border: 2px $turtlegreen solid;
 }
 
+.sign-up-bottom-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#description-box {
+  height: 200px;
+}
+
 ::placeholder {
   color: rgba(0, 0, 0, 0.527) !important;
+  word-wrap: break-word;
+
 }
 
 label {
@@ -194,7 +206,7 @@ label {
 }
 
 #first-field {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .field {
@@ -209,6 +221,7 @@ label {
   font-size: 2vh;
   height: 45px;
   color: white;
+  margin-bottom: 10px;
 }
 
 .form-cancel {
@@ -258,4 +271,16 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+// Error Messages Box
+
+#error_explanation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 60%;
+  margin: 0;
 }

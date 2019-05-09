@@ -12,6 +12,7 @@ class Ability
       elsif user.is_vendor?
         can :manage, Product
         can :manage, Vendor
+        can :manage, User
       else
         can :read, Product 
       end

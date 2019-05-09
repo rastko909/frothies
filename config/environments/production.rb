@@ -64,6 +64,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "frothies_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              Rails.application.credentials.dig(:mailgun, :smtp_address),
+    port:                 Rails.application.credentials.dig(:mailgun, :smtp_port),
+    domain:               Rails.application.credentials.dig(:mailgun, :domain),
+    user_name:            Rails.application.credentials.dig(:mailgun, :username),
+    password:             Rails.application.credentials.dig(:mailgun, :password),
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -91,4 +101,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
 end

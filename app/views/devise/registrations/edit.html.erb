@@ -19,14 +19,14 @@
   <% end %>
 
     <div class="field">
-   <input type="checkbox" id="checkbox-password">
+   <input type="checkbox" id="checkbox-password">  Change Password?
    <br>
   </div>
 
   <div class="additional-fields">
 
   <div class="field">
-    <%= f.label :password %> <br> <i style="font-size: 0.7rem;">(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <br> <i style="font-size: 0.7rem;">(Leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "sign-up-form-box" %>
     <% if @minimum_password_length %>
       <br />
@@ -40,7 +40,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <br> <i style="font-size: 0.7rem;">(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <br> <i style="font-size: 0.7rem;">(Enter current password to confirm changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: "sign-up-form-box" %>
   </div>
   </div>
@@ -71,6 +71,25 @@
     <%= f.text_field :postcode, autofocus: false, class: "sign-up-form-box" %>
     </div>
 
+    <% if current_user.is_vendor? %>
+
+      
+    <div class="field">
+      Company Name:<br>
+      <input type="text" name="company_name" class="sign-up-form-box" placeholder="<%= current_user.vendor.company_name %>"><br>
+    </div>
+
+    <div class="field">
+      Company ABN:<br>
+      <input type="text" name="company_name" class="sign-up-form-box" placeholder="<%= current_user.vendor.abn %>"><br>
+    </div>
+
+    <div class="field">
+      Company Description:<br>
+      <input type="textarea" name="company_description" class="sign-up-form-box" placeholder="<%= current_user.vendor.company_description %>"><br>
+    </div>
+
+  <% end %>
 
     <div class="actions">
       <%= f.submit "Update", class: "form-submit" %>

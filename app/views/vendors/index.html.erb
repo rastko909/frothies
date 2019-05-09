@@ -15,7 +15,7 @@
         <%= link_to 'Update', edit_product_path(id: beer.id), method: :get, class: 'btn btn-danger'  if beer.vendor.id == current_user.vendor.id unless current_user.is_admin? == true %>
       <% end %>
       <% if can? :delete, Product %>
-        <%= link_to 'remove', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' if beer.vendor.id == current_user.vendor.id %>
+        <%= link_to 'Delete', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' if beer.vendor.id == current_user.vendor.id %>
       <% end %>
     </div>
 

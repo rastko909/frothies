@@ -1,13 +1,7 @@
 <div class="shopping-outer-container">
   <div class="shopping-cart-header">
     <h1>Shopping Cart</h1>
-
-    <% if @order_items.count == 0 %>
-      <div><p>Shopping cart is empty, please return to index and select some items.</p></div>
-      <br>
-    <% end %>
   </div>
-
   <div class="cart-shipping">
 
     <div class="customer-details-box">
@@ -54,6 +48,7 @@
             <%= link_to 'Delete', order_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' %>
         </div>
         <div class="product-line-price"><%= number_with_precision(item.product.price * item.quantity, :precision => 2)%></div>
+ 
       </div>
       <% end %>
 

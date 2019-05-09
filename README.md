@@ -100,8 +100,6 @@ We created user stories for three users as follows.
 - a seller (i.e. a microbrewery owner or manager)
 - a site admin.
 
-
-
 ## 16.Provide Wireframes for your App.
 
 

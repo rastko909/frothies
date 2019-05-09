@@ -1,6 +1,7 @@
 <div class="shopping-outer-container">
   <div class="shopping-cart-header">
     <h1>Shopping Cart</h1>
+
     <% if @order_items.count == 0 %>
       <div><p>Shopping cart is empty, please return to index and select some items.</p></div>
       <br>
@@ -9,26 +10,25 @@
 
   <div class="cart-shipping">
 
-  <div class="customer-details-box">
-    <h3>Customer Details</h3>
-    <strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %>
+    <div class="customer-details-box">
+      <h3>Customer Details</h3>
+      <strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %>
+      <br>
+      <strong>DOB:</strong> <%= @user.date_of_birth %>
+      <br>
+      <strong>Email:</strong> <%= @user.email %>
+    </div>
     <br>
-    <strong>DOB:</strong> <%= @user.date_of_birth %>
-    <br>
-    <strong>Email:</strong> <%= @user.email %>
-  </div>
-  <br>
-  <div class="address-details-box">
-    <h3>Delivery Address</h3>
-    <%= @user.address %>
-    <br>
-    <%= @user.state %>   <%= @user.postcode %>
-    <br>
-  </div>
-  
+    <div class="address-details-box">
+      <h3>Delivery Address</h3>
+      <%= @user.address %>
+      <br>
+      <%= @user.state %>   <%= @user.postcode %>
+      <br>
+    </div>
+
   </div>
 
-  <div class="cart-items">
     <div class="shopping-cart">
       <div class="column-labels">
         <label class="product-image">Image</label>
@@ -38,8 +38,9 @@
         <label class="product-removal">Remove</label>
         <label class="product-line-price">Total</label>
       </div>
-    <% @order_items.each do |item| %>
-        <div class="product">
+      
+      <% @order_items.each do |item| %>
+      <div class="product">
         <div class="product-image">
         <%= image_tag item.product.image_url, id: 'shopping-item-image' if item.product.image_url.attached? %>
         </div>
@@ -47,39 +48,38 @@
           <div class="product-title"><%= item.product.title %></div>
           <p class="product-description"><%= item.product.description %></p>
         </div>
-        <div class="product-price"><%= item.product.price%></div>
+        <div class="product-price"><%= number_with_precision(item.product.price, :precision => 2)%></div>
         <div class="product-quantity"><%= item.quantity %></div>
         <div class="product-removal">
             <%= link_to 'Delete', order_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' %>
         </div>
-        <div class="product-line-price"><%= item.product.price * item.quantity %></div>
+        <div class="product-line-price"><%= number_with_precision(item.product.price * item.quantity, :precision => 2)%></div>
       </div>
-
       <% end %>
 
-      <div class="totals">
+</div>
+
+ <div class="totals">
         <div class="totals-item">
           <label>Subtotal</label>
-          <div class="totals-value" id="cart-subtotal"><%= @total_price %></div>
+          <div class="totals-value" id="cart-subtotal"><%= number_with_precision(@total_price, :precision => 2) %></div>
         </div>
         <div class="totals-item">
           <label>GST (10%)</label>
-          <div class="totals-value" id="cart-tax"><%= @total_price / 10 %></div>
+          <div class="totals-value" id="cart-tax"><%= number_with_precision(@total_price / 10, :precision => 2) %></div>
         </div>
         <div class="totals-item">
           <label>Shipping</label>
-          <div class="totals-value" id="cart-shipping">0</div>
+          <div class="totals-value" id="cart-shipping">0.00</div>
         </div> 
 
         <div class="totals-item totals-item-total">
           <label>Grand Total</label>
-          <div class="totals-value" id="cart-total"><%= @total_price + (@total_price / 10) %></div>
+          <div class="totals-value" id="cart-total"><%= number_with_precision(@total_price + (@total_price / 10), :precision => 2) %></div>
         </div>
-      </div>
-      <%= render "layouts/shared/stripe_form" %>
-  </div>
 
- 
+              <%= render "layouts/shared/stripe_form"%>
+
+      </div>
 
 </div>
-

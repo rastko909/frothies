@@ -10,6 +10,7 @@ class OrderItemsController < ApplicationController
     @order_items.each do |item|
       @total_price += item.product.price * item.quantity
     end
+    
   end
 
   def new

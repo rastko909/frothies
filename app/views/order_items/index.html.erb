@@ -7,80 +7,77 @@
     <% end %>
   </div>
 
+  <div class="cart-shipping">
 
-    <div class="cart-shipping">
-
-    <div>
-      <h4>Customer Details</h4>
-      <strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %>
-      <br>
-      <strong>DOB:</strong> <%= @user.date_of_birth %>
-      <br>
-      <strong>Email:</strong> <%= @user.email %>
-    </div>
+  <div class="customer-details-box">
+    <h3>Customer Details</h3>
+    <strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %>
     <br>
-    <div>
-      <h4>Delivery Address</h4>
-      <%= @user.address %>
-      <br>
-      <%= @user.state %>   <%= @user.postcode %>
-      <br>
-    </div>
-    
-    </div>
+    <strong>DOB:</strong> <%= @user.date_of_birth %>
+    <br>
+    <strong>Email:</strong> <%= @user.email %>
+  </div>
+  <br>
+  <div class="address-details-box">
+    <h3>Delivery Address</h3>
+    <%= @user.address %>
+    <br>
+    <%= @user.state %>   <%= @user.postcode %>
+    <br>
+  </div>
+  
+  </div>
 
-    <div class="cart-items">
-      <div class="shopping-cart">
-        <div class="column-labels">
-          <label class="product-image">Image</label>
-          <label class="product-details">Product</label>
-          <label class="product-price">Price</label>
-          <label class="product-quantity">Quantity</label>
-          <label class="product-removal">Remove</label>
-          <label class="product-line-price">Total</label>
+  <div class="cart-items">
+    <div class="shopping-cart">
+      <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+      </div>
+    <% @order_items.each do |item| %>
+        <div class="product">
+        <div class="product-image">
+        <%= image_tag item.product.image_url, id: 'shopping-item-image', class: 'card-img-top' if item.product.image_url.attached? %>
         </div>
-      <% @order_items.each do |item| %>
-          <div class="product">
-          <div class="product-image">
-          <%= image_tag item.product.image_url, class: 'card-img-top' if item.product.image_url.attached? %>
-          </div>
-          <div class="product-details">
-            <div class="product-title"><%= item.product.title %></div>
-            <p class="product-description"><%= item.product.description %></p>
-          </div>
-          <div class="product-price"><%= item.product.price * item.quantity %></div>
-          <div class="product-quantity">
-            <input type="number" value="<%= item.quantity %>" min="1">
-          </div>
-          <div class="product-removal">
-              <%= link_to 'Delete', order_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' %>
-          </div>
-          <div class="product-line-price"><%= item.product.price * item.quantity %></div>
+        <div class="product-details">
+          <div class="product-title"><%= item.product.title %></div>
+          <p class="product-description"><%= item.product.description %></p>
         </div>
-
-        <% end %>
-
-        <div class="totals">
-          <div class="totals-item">
-            <label>Subtotal</label>
-            <div class="totals-value" id="cart-subtotal"><%= @total_price %></div>
-          </div>
-          <div class="totals-item">
-            <label>GST (10%)</label>
-            <div class="totals-value" id="cart-tax"><%= @total_price / 10 %></div>
-          </div>
-          <div class="totals-item">
-            <label>Shipping</label>
-            <div class="totals-value" id="cart-shipping">0</div>
-          </div> 
-
-          <div class="totals-item totals-item-total">
-            <label>Grand Total</label>
-            <div class="totals-value" id="cart-total"><%= @total_price + (@total_price / 10) %></div>
-          </div>
+        <div class="product-price"><%= item.product.price%></div>
+        <div class="product-quantity"><%= item.quantity %></div>
+        <div class="product-removal">
+            <%= link_to 'Delete', order_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' %>
         </div>
-        <%= render "layouts/shared/stripe_form" %>
-    </div>
+        <div class="product-line-price"><%= item.product.price * item.quantity %></div>
+      </div>
+
+      <% end %>
+
+      <div class="totals">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal"><%= @total_price %></div>
+        </div>
+        <div class="totals-item">
+          <label>GST (10%)</label>
+          <div class="totals-value" id="cart-tax"><%= @total_price / 10 %></div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">0</div>
+        </div> 
+
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total"><%= @total_price + (@total_price / 10) %></div>
+        </div>
+      </div>
+      <%= render "layouts/shared/stripe_form" %>
+  </div>
 
  
 

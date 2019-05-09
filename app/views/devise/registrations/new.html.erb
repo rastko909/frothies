@@ -56,7 +56,7 @@
     <%= f.check_box :is_vendor, {}, true%> <%= f.label :is_vendor, "SIGN UP AS BREWER?" %>
   </div>
 
-  <div class="brewer-additional-fields">
+  <div class="additional-fields">
     <div class="field">
       Company Name:<br>
       <input type="text" name="company_name" class="sign-up-form-box" placeholder="Enter Company Name"><br>
@@ -64,7 +64,7 @@
 
     <div class="field">
       Company Description:<br>
-      <input type="text" name="company_description" class="sign-up-form-box" placeholder="Enter Company Description"><br>
+      <input type="textarea" name="company_description" class="sign-up-form-box" placeholder="Enter Company Description"><br>
     </div>
 
     <div class="field">
@@ -85,7 +85,7 @@
 
 <script>
 const checkBox = document.querySelector('#user_is_vendor')
-const additionalFields = document.querySelector('.brewer-additional-fields')
+const additionalFields = document.querySelector('.additional-fields')
 console.log(checkBox)
 checkBox.addEventListener('change', (e) => {
   if (e.target.checked) {

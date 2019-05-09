@@ -34,6 +34,10 @@ class ChargesController < ApplicationController
     end
 
     @order.update(total_price: @total_price, completed: false)
+    @order = Order.last
+    
+    @user = current_user
+    UserMailer.with(user: @user, order: @order).new_order_email.deliver_now
 
     if @order.save
       render :show

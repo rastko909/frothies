@@ -3,12 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :create_vendor_account, if: :devise_controller?
+  after_action :update_vendor_account, if: :devise_controller?
 
   protected
+
       def configure_permitted_parameters
           devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :first_name, :last_name, :address, :state, :postcode, :is_vendor, :company_name, :company_abn, :company_description])
-          devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :first_name, :last_name, :address, :state, :postcode, :is_vendor, :company_name, :company_abn, :company_description])          
-      end
+
+          devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :first_name, :last_name, :address, :state, :postcode, :is_vendor, :company_name, :company_abn, :company_description, :update])
+        end
 
       def create_vendor_account
         unless current_user == nil 
@@ -18,4 +21,13 @@ class ApplicationController < ActionController::Base
             end
         end
       end
+
+      def update_vendor_account
+        unless current_user == nil 
+            if current_user.is_vendor == true && params[:update] == "true"
+                vendor = Vendor.update(user_id: current_user.id, abn: params[:company_abn], company_name: params[:company_name], company_description: params[:company_description])
+            end
+        end
+      end
+
 end

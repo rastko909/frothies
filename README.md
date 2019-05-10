@@ -58,7 +58,7 @@ Note: this account is not seeded. Instructor can register as a brewer on Frothie
 *Mailgun account*
 If you would like to add any other authorised mailgun recipients to test emails, use the following details.
 Login: frothies.application@gmail.com
-Password: 
+Password: Frothies-123
 
 **What does this readme contain?**
 

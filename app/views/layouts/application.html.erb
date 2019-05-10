@@ -24,15 +24,15 @@
 
     <% flash.each do |key, value| %>
       <% if key == 'success'  %>
-        <div class="alert alert-success" role="alert">
+        <div style="margin-top: 10px;" class="alert alert-success w-100" role="alert">
           <%= value %>
         </div>
       <% elsif key == 'alert' %>
-              <div class="alert alert-danger" role="alert">
+              <div  style="margin-top: 10px;"  class="alert alert-danger w-100" role="alert">
           <%= value %>
         </div>
       <% else %>
-        <div class="alert alert-primary" role="alert">
+        <div style="margin-top: 10px;"  class="alert alert-primary w-100" role="alert">
           <%= value %>
       </div>
       <% end %>

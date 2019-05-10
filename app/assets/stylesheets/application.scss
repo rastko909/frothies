@@ -26,15 +26,51 @@
 @import url('https://fonts.googleapis.com/css?family=Quantico');
 
 .btn-custom-green {
-  background: $turtlegreen;
+  background: #47877c;
+  color: white;
+  transition: all 0.5s;
+}
+
+.btn-custom-green:hover {
+  background: #47877c;
+  transform: scale(1.02);
   color: white;
 }
 
+.product-label { 
+  font-weight: bold;
+}
+
+a {
+  // color: #7B586B;
+  // color: #7c26cb;
+  color: #551a8b;
+
+}
+
+a.active {
+  color: #551a8b;
+}
+
+a.visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #551a8b;
+  text-decoration: none;
+}
+
+.navbar-white {
+  background: white !important;
+  box-shadow: 5px 5px 5px rgb(39, 39, 39);
+} 
+
 body {
-  // background-image: url('https://images.unsplash.com/photo-1545878587-bd777063c414?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3150&q=80');
-  // background-size: cover;
-  // background-position: center;
-  // background-attachment: fixed, scroll;
+  background-image: url('https://images.unsplash.com/photo-1528491836309-55b4a140b78a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3024&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed, scroll;
 }
 
 .product-index {
@@ -283,7 +319,6 @@ label {
   display: none;
 }
 
-
 // Log In Page
 
 .login-outer-container {
@@ -301,6 +336,7 @@ label {
   align-items: center;
   width: 525px;
   border: 1px solid black;
+  background: white;
 }
 
 .login-header {

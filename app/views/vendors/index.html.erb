@@ -1,22 +1,25 @@
 <div class="d-flex justify-content-around flew-row flex-wrap">
   <% @products.each do |beer| %>
 
-  <div class="card d-flex flex-column m-2 w-25">
+  <div style="border-radius: 0; border: black 2px solid; padding: 10px;" class="card d-flex flex-column m-2 w-25">
     <%= image_tag beer.image_url, class: 'card-img-top' if beer.image_url.attached? %>
 
     <div class="card-body">
 
       <h5 class="card-title"><%= beer.title %></h5>
-      <p class="card-text"><strong>Brewer:</strong> <%= beer.vendor.company_name  %></p>
-      <p class="card-text"><strong>Description:</strong> <%= beer.description  %></p>
-      <p class="card-text"><strong>ABV:</strong> <%= beer.abv %></p>
-      <p class="card-text"><strong>Price:</strong> $<%= beer.price %></p>
+      <p class="card-text"><span class="product-label">Brewer:</span> <%= beer.vendor.company_name  %></p>
+      <p class="card-text"><span class="product-label">Description:</span> <%= beer.description  %></p>
+      <p class="card-text"><span class="product-label">ABV:</span> <%= beer.abv %></p>
+      <p class="card-text"><span class="product-label">Price:</span> $<%= beer.price %></p>
+      <p class="card-text"><span class="product-label">Stock:</span> <%= beer.quantity %></p>
+      <div class="d-flex justify-content-between">
       <% if can? :edit, Product %>
         <%= link_to 'Update', edit_product_path(id: beer.id), method: :get, class: 'btn btn-danger'  if beer.vendor.id == current_user.vendor.id unless current_user.is_admin? == true %>
       <% end %>
       <% if can? :delete, Product %>
         <%= link_to 'Delete', product_path(id: beer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn   btn-danger' if beer.vendor.id == current_user.vendor.id %>
       <% end %>
+      </div>
     </div>
 
   </div>

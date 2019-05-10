@@ -1,5 +1,10 @@
 # README
 
+![Frothies logo](images/logo/FROTHIES.jpg)
+
+![Group picture](images/logo/StartGroup.jpg)
+Frothies developers, Jie-Yi, Gwenny, and Rastko 
+
 # Rails app 
 This rails app was created as part of assessment for Coder Academy Fasttrack Bootcamp over two weeks in April, 2019. 
 
@@ -15,6 +20,10 @@ Google slides User Personas: https://docs.google.com/presentation/d/1MiDaYOKiY3v
 
 Cardboard User Stories: https://app.cardboardit.com/maps/guests/f9c1bdb994a2426b642e43ccab0b20034ce0e5109cab39e661aa8c13424756b4
 
+Logins to use for testing:
+
+
+
 
 
 # Short answer questions
@@ -22,23 +31,19 @@ Cardboard User Stories: https://app.cardboardit.com/maps/guests/f9c1bdb994a2426b
 
 In the beer industry, we identified that microbreweries are stretched for time and resources and find themselves in an increasingly saturated market. We recognised a strong need for them to diversify their customer base if they are to survive and keep the art of craft beer alive. 
 
-At the same time, our target customers from Generation X, Y and Z have a passion for good quality craft beer. They also want to support local businesses. However, these people may be too busy with study or work to search for or visit such microbreweries.
+At the same time, our target customers from Generation X, Y and Z have a passion for good quality craft beer. They also want to support local businesses and try new craft beers. In fact, the 2018 Australian Craft Beer survey by Beer Cartel found that the majority of craft beer lovers actively look for new craft beers to try and that 85% of Australians are purchasing more Australian craft beer and less international craft beer. However, these people may not always have the time to search for or visit such microbreweries.
 
 We saw an opportunity to connect these two groups of people via an app that acts as a marketplace, relieving time pressure for both parties and bridging the gap between buyer and seller. 
 
 ## 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 
-business case
+The business case for this issue is that microbreweries tend to be 'bricks and mortar' physical stores. Such stores traditionally rely on customer visits for tours or tastings for business (stat on tourist industry?). (stat - online?) This means the breweries miss out on the opportunity that digital environments provide and therefore do not pass on this convenience to their customer base nor do they have the chance to widen their market. Because the craft beer industry has soared in popularity, ignoring an opportunity to diversify is now a more serious risk for the microbrewers, and by extension, the local economy.
 
-saturated (stat - 200% in two year increase?)
-
-millenials wanting to buy local, support communities
-
-The business case for this issue is that microbreweries tend to be 'bricks and mortar' physical stores. Such stores traditionally rely on customer visits for tours or tastings for business (stat on tourist industry?). (stat - online?) This means the breweries miss out on the opportunity that digital environments provide and therefore do not pass on this convenience to their customer base or have the chance to widen their market. As the craft beer industry has soared in popularity, ignoring an opportunity to diversity is now a more serious risk for the microbrewers, and by extension, the local economy.
+The app aims to solve this problem before microbreweries and their part in the economy are at risk. 
 
 ## 3. Describe the project will you be conducting and how your App will address the needs.
 
-Frothies, the online marketplace we are creating, aims to make the user experience online simple and straightforward. This will save time for busy brewery owners, because they'll be able to get immediate data on their products without doing the analytics manually. In addition, their products will be introduced to a larger online audience outside their local area without them having to pay for advertising or use their resources to travel to different areas to sell.
+Frothies, the online marketplace we are creating, aims to make the online user experience simple and straightforward. This will save time for busy brewery owners, because they'll be able to get immediate data on their products without doing the analytics manually. In addition, their products will be introduced to a larger online audience outside their local area without them having to pay for advertising or use their resources to travel to different areas to sell.
 
 For the buyers in our marketplace, the project will provide a convenient online environment that allows them to support microbreweries without having to spend time searching for them or travelling to them. We bring the beer tasting directly to their front door. 
 
@@ -46,9 +51,28 @@ For the buyers in our marketplace, the project will provide a convenient online 
 
 
 
+
 ## 5. Identify and describe the software to be used in your App.
 
+The Frothies web application was built using the following software.
 
+*Ruby*
+
+Ruby is the main programming language that Frothies is built with.
+*Rails*
+
+Rails is an open source development framework for web applications written in Ruby. As a model-view-controller framework, it provides the database structure, . Ultimately, it communicates with Rack, the middleware communicating directly with the web server.
+
+*HTML*
+
+Hypertext Markup Language was used for the structure of Frothies pages with embedded ruby (erb)—HTML with Ruby code inside it. This allowed the development to include Ruby functionality in a format that the code could output a pure HTML file. 
+
+*CSS*
+Cascading Style Sheets were used to style the Frothies web pages. We used SCSS, a superset of CSS, so that we were able to extend the functionality of CSS, including by storing styles as variables and nesting. Many of our pages had Bootstrap 4 elements, which also required SCSS files to be used. 
+
+*Javascript*
+
+We used Javascript, an object-oriented programming langauge for web desing, for dynamic parts of the site, such as replacing our Stripe payment button and hiding inputs and labels when a user signs up. 
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
@@ -62,7 +86,7 @@ We used the default settings for almost all of the database setup. This meant it
 
 Firstly, we set our storage for images to be Amazon so we could use cloud-based storage via S3 for some of our images. We included these details in the storage.yml file. 
 
-Secondly,xxx? 
+
 
 ## 8. Describe the architecture of your App.
 
@@ -70,20 +94,50 @@ MVC
 
 ## 9.Explain the different high-level components (abstractions) in your App.
 
-Our app is built on Rails, a Domain Specific Language (DSL) which is itself written in Ruby. For the computer to understand our Ruby on Rails app, Ruby is translated into C, a low-level language, low-level being a language with less abstraction that is closer to machine code. C is then translated into Assembly, which then translates into the binary that the machine needs to run it. 
+Our app is built on Rails, a Domain Specific Language (DSL) which is itself written in Ruby. For the computer to understand our Ruby on Rails app, Ruby is translated into C, a low-level language, low-level being a language with less abstraction that is closer to machine code. C is then translated into the binary that the machine needs to run it. 
 
 One significant level of abstraction in Rails is the routes. The routes allow our app to match requests (e.g. GET, POST) to an action in the controller. Ultimately, this will direct the user to a URL, and because of this abstraction, we are not required to hard code the URLs or routes as strings.
 
-
+Another level of abstraction in Rails is 
  
 ## 10.Detail any third party services that your App will use.
 
-Devise?
-Cancan?
-Stripe?
-AWS?
+Frothies used several third party services, as listed below. 
+
+*Devise*
+Devise is a gem used for authentication. Built on Warden, it is a Rack application that handles cookies to verify the identity of a user, simultaneously hiding the user's unique id. In Frothies, this can be seen throughout the code with current_user.
+
+*Cancan*
+CanCanCan was used in Frothies for authorisation. This allowed users to have different levels of access to Frothies information. Access levels were as follows.
+- Buyer: can create/edit their profile, can view products, can edit/delete their orders, can view their payment history
+- Vendor: can create/edit their profile, can create/edit/delete products, can see a buyer's order history, 
+- Admin: this would be a superuser. We did not have the scope to develop this admin role for the MVP.
+
+Code snippet showing Cancan abilities
+      user ||= User.new # guest user (not logged in)
+      if user.is_admin?
+        can :manage, :all
+      elsif user.is_vendor?
+        can :manage, Product
+        can :manage, Vendor
+        can :manage, User
+      else
+        can :read, Product 
+      end
+
+*Stripe*
+Stripe software was used to handle our payment system. The setup of Stripe is more developer-friendly and provides secure payment processing by 'tokenising' credit card numbers and avoiding exposing server data. This is a part of Payment Card Industry Data Security Standard (PCI DSS), the 12 security controls a business is required to implement to be compliant in Australia. 
+
+*AWS*
+Amazon Simple Storage Service (S3), an AWS object storage service, was used for cloud-storage to allow the uploading and storing of images via a secure and reliable platform. 
 
 ## 11.Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+As we developed Frothies to be a buyer / seller marketplace, the data structure is similar in some ways to other e-commerce platforms. 
+
+Ebay: The models are similar (buyer / seller) although in eBay buyers can also be sellers, whereas in Frothies, the model and relations require users to be a buyer or seller, not both simultaneously. 
+
+Airbnb: Like eBay, the model of buyer/seller is similar in Frothies, but the peer to peer (i.e. buyer/seller can be the same person) aspect of the model is not. 
 
 
 
@@ -91,24 +145,109 @@ AWS?
 
 ## 13.Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+Between our Frothies Active Record models, the associations are as follows.
+
+Buyer (i.e. User in Frothies development environment)
+  has_one :vendor
+  has_many :orders
+  has_many :order_items
+
+Seller (i.e. Vendor in Frothies development environment)
+  belongs_to :user
+  has_many :products
+  has_one_attached :company_logo
+  has_many :order_items
+
+Product (the item a vendor is selling)
+  belongs_to :vendor
+  has_many :order_items
+  has_one_attached :image_url
+
+Order (a buyer's list of order items once they have clicked 'Checkout')
+  has_many :order_items
+  belongs_to :user, optional: true
+
+Order items (products after a buyer has ordered them)
+  belongs_to :order, optional: true
+  belongs_to :product
+  belongs_to :user, optional: true
+  belongs_to :vendor, optional: true
+
 ## 14.Provide your database schema design.
+
+*Screenshot of Entity Relationship Diagram (ERD)*
+
+![Screenshot of ERD](images/ERD_Final.png)
 
 ## 15.Provide User stories for your App.
 
-We created user stories for three users as follows.
+We created user stories for two types of users
 - a buyer
-- a seller (i.e. a microbrewery owner or manager)
-- a site admin.
+- a seller (i.e. a microbrewery owner or manager).
+
+We used an Agile approach to our stories, having epics for our broad concepts, features to distinguish technical parts of the stories, and user stories for specific use cases. We displayed these on cards using Cardboard as our User Story mapping tool. 
+
+We came up with 8 user stories for our MVP and a few more for a 2nd iteration if we had the MVP completed. 
+
+The user stories for our MVP are listed below and can be seen in the screenshot.
+
+As a buyer, I want to
+  - sign up so I can create an account
+  - add products to my card so I can buy them
+  - view products in my cart before I buy them so I can check what I ordered
+  - store the products I placed in my cart so I can view them at a later time.
+
+As a seller, I want to
+- display products so I can show them to customers
+- see orders so I can prepare them for delivery
+- have buttons for customers to click on so I can sell my products
+- update the status of orders so customers are happy (e.g. shipped).
+
+We managed to develop all of our MVP features for our User stories.
+
+*User story mapping using [Cardboard](https://cardboardit.com/)*
+
+![User stories](images/Cardboard_UserStories.png)
 
 ## 16.Provide Wireframes for your App.
 
+We developed wireframes for our app using Figma. The wireframes were for mobile phone, tablet and desktop views.
 
+We designed the following screens.
+- ID check page (for over 18)
+- Page for rejection if under 18
+- Home page (displaying products)
+- Login/Sign up page
+- Sales summary for vendor (i.e. vendor dashboard) page
+- Sales summary for buyer (i.e. order summary) page
+
+*Wireframes for desktop*
+
+![Wireframes for desktop view](images/Day&#32;2/Fig_desktop_1.png)
+
+![Wireframes for desktop view](images/Day&#32;2/Fig_desktop_2.png)
+
+*Wireframes for tablet*
+
+![Wireframes for tablet view](images/Day&#32;4/RA_Fig_Ipad2.png)
+
+![Wireframes for tablet view](images/Day&#32;4/RA_Fig_Ipad1.png)
+
+*Wireframes for mobile phone*
+
+![Wireframes for mobile view](images/Day&#32;2/Fig_mob.png)
 
 ## 17. Describe the way tasks are allocated and tracked in your project.
+
+We communicated throughout each day about how we would allocate tasks. To communicate, we talked in person to kick off each day, throughout the day as required in person as well as in Slack to share files or code snippets (screenshot below) and via Trello for task allocation. 
 
 *Communication channel in slack*
 
 ![Screenshot of Slack channel](images/Day&#32;4/Slack.png)
+
+*Sharing code and files in slack*
+
+![Screenshot of Slack communication](images/Slack_Communiation.png)
 
 ## 18. Discuss how Agile methodology is being implemented in your project.
 
@@ -123,24 +262,24 @@ We maintained an agile (Kanban) board on Trello for project management with card
 
 For the first four days, we're using Kanban, and for the 5th to the 8th day, we plan to use Scrum while keeping our backlog (i.e. 'Scrumban'). 
 
-Screenshots of the Kanban are shown throughout our planning notes after this short answer question section. 
+Screenshots of the Kanban are shown throughout our planning notes after this short answer question section. On day 10, the board looked like this:
 
-During the scrum, we plan to
+*Screenshot of Trello board, Day 10*
+
+![Screenshot of Trello board](images/RA_Trello_Day10.png)
+
+The headings for Kanban are shown here:
+
+*Kanban headings to support Scrum iterations*
+
+![Screenshot of Trello board column headings](images/RA_Trello_Kanban.png)
+
+During the scrum, we planned to
 - prioritise tasks from our backlog
 - do sprint planning as a group
-- have two shipped epics as our scrum goals
-- do one sprint
-- do retrospectives at the end of each day since our sprint is only five days long.
+- have two shipped epics as our scrum goals.
 
-We created User stories early in the project as part of our planning and will use these during the sprint to complete features we haven't done. These were done with
-- Our two users (Buyer and seller)
-- One epic for each user (allow customer to buy and allow buyer to sell respectively)
-- Features (e.g. enable sign up and login, list products for sale)
-- User stories (e.g. As a buyer, I want to sign up so I can create an account)
-
-*User story mapping using Cardboard.io*
-
-![User story map](images/Cardboard_UserStories.png)
+We created User stories early in the project as part of our planning and used these during sprints to complete features we hadn't done while maintaining a fast, efficient development pace. 
 
 We also followed customer journeys using the cards and inbuilt function in the site. One customer jouney is shown in the screenshot below.
 
@@ -164,7 +303,11 @@ Approval was always agreed on between the three group members for this process. 
 
 We did testing at different levels during the app development. 
 
-This included testing as we developed each feature to see how it worked and also trying edge cases each time. For example, when we added authorisation, we tested different logins for different users to check that the authorisation behaved as expected. 
+This included testing as we developed each feature to see how it worked and also trying edge cases each time. For example, when we added authorisation, we tested different logins for different users to check that the authorisation behaved as expected. Screenshots of different testing is shown below.
+
+*Screenshots of testing during app development*
+
+![Screenshot of test]
 
 We also deployed to Heroku and tested using 'raise' by entering variables and checking output was as expected. For example, after deploying the products home page, we tested that we could create, save and retrieve objects using 
 - e = User.new
@@ -173,7 +316,7 @@ We also deployed to Heroku and tested using 'raise' by entering variables and ch
 
 We agreed to use Minitest for unit testing since it is the default for Ruby libraries and has the inbuilt test files. We did one set of testing around product, since this was our main component on the app. 
 
-We received one error to do with 'image_url' and tried several strategies to get rid of it (deleting the relation 'has_one_attached' from the products model, manually editing the image_url when seeding, xxx ), none of which removed the errror. As this was the only error we were getting and the app was still deploying successfully, we agreed to move on. 
+We received one error to do with 'image_url' and tried several strategies to get rid of it (deleting the relation 'has_one_attached' from the products model, manually editing the image_url when seeding), none of which removed the errror. As this was the only error we were getting and the app was still deploying successfully, we agreed to move on. 
 
 *Screenshot of product test*
 
@@ -187,14 +330,33 @@ We received one error to do with 'image_url' and tried several strategies to get
 
 
 
+
+
 ## 22. Discuss methods you will use to protect information and data.
+
+According to the Australian government business cyber security site ([2019](https://www.business.gov.au/risk-management/cyber-security/protecting-your-customers-information)), the following responsibilities are best practice for storing customer data. 
+
+'As a business owner, you have the responsibility to:
+
+Protect personal information from:
+- theft
+- misuse
+- interference
+- loss
+- unauthorised access
+- modification
+- disclosure.
+Take reasonable steps to destroy or de-identify personal information when it is no longer needed for any purpose permitted under the Privacy Act 1988. This might include shredding documents or storing them in a secure area.'
+
+We protected our users' data by employing validation, authorisation, authentication and secure and reputable third party services in the development of our app. 
 
 ## 23. Research what your legal obligations are in relation to handling user data.
 
-The Privacy Act 1988 regulates the management, storing, access and correction of personal information about individuals is handled by APP entities. Business with an annual turnover of more than $3 million, health service providers and those who trade in personal information for benefit, service or advantage are considered an APP entity and are covered by the Privacy Act 1988.
-Our app does not fall under these categories and therefore do not have responsibilities under the Privacy Act.
-However, under the Section 6EA of the Privacy Act, we could decide to opt-in and be covered by the Privacy Act as a public commitment to good privacy practice. Operating under the Privacy Act may result in an increase in customer confidence and trust in the business.
+The Privacy Act 1988 regulates the management, storing, access and correction of personal information about individuals that is handled by APP entities. Business with an annual turnover of more than $3 million, health service providers and those who trade in personal information for benefit, service or advantage are considered an APP entity and are covered by the Privacy Act 1988.
 
+Our app does not fall under these categories and therefore does not have responsibilities under this part of the Privacy Act.
+
+However, under the Section 6EA of the Privacy Act, we could decide to opt-in and be covered by the Privacy Act as a public committment to good privacy practice. Operating under the Privacy Act may result in an increase in customer confidence and trust in the business.
 
 # Day 1
 
@@ -532,3 +694,52 @@ Gwenny wrote copy for the 12 individual products (see screenshot). We agreed on 
 *Designing product looks (including drink names and logo for brewery)*
 
 ![Screenshot of products in Figma](images/Day&#32;8/RA_Fig_Products_Day8.png)
+
+**Day 9**
+
+*Day 9 planning*
+
+![Screenshot of day 9 plan]()
+
+We developed the presentation slide deck and themed it to match our Frothies site. 
+
+*Screenshot of slide deck*
+
+![Screenshot of slide deck](images/SlideDeck.png)
+
+
+**Day 10**
+
+We agreed that our white background and general styling was too minimal and experimented with images for our background. We settled on an image of graffiti from Unsplash that had the right feel for our users and the craft beer industry.
+
+*Image sourced from Unsplash for background*
+
+![Screenshot of image used for background](images/Day&#32;10/BackgroundPic_Unsplash.png)
+
+*Frothies home page with image background*
+
+![Screenshot of home page](images/Frothies_HomePage.png)
+
+After playing around with colours, we settled on the final design with purple buttons and hyperlinks. 
+
+*Frothies home page, final design*
+
+![Screenshot of home page, final design](images/New&#32;Index&#32;Page.png)
+
+Our planning was to tie up loose ends today and finish our documentation.
+
+*Screenshot of Day 10 plan*
+
+![Screenshot of Trello card, Day 10](images/logo/RA_Trello_Day10Start.png)
+
+*Screenshot of Trello board at end of project*
+
+![Screenshot of Trello board, end of project](images/RA_Trello_Complete.png)
+
+*Sad because it's over*
+
+![Group picture, everyone frowning](images/SadGroup.png)
+
+*Also happy because it's over*
+
+![Group picture, everyone smiling](images/HappyGroup.png)

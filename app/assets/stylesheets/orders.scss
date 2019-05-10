@@ -1,3 +1,48 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-history-container {
+  height: calc(100vh - 4.5rem);
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.each-order-box {
+  border: 1px solid black;
+  padding-bottom: 20px;
+  margin: 20px;
+  width: 600px;
+}
+
+.order-header {
+  width: 100%;
+  padding: 10px;
+  background-color: $limegreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.order-details {
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.price-bold {
+  font-size: 2vh;
+}
+
+#last-list-group {
+  border-bottom: 1px solid $turtlegreen;
+  z-index: 2;
+}
+
+.customer-details {
+  background-color: $brightorange;
+}

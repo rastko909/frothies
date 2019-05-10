@@ -8,7 +8,6 @@ class VendorsController < ApplicationController
 
   def edit
     @vendor = Vendor.find(params[:id])
-    raise
   end
 
   def show

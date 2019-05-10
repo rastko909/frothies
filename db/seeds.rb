@@ -17,7 +17,7 @@ company_desc = "Castles in the Sky microbrewery was started by sisters Victoria 
 
 p company_desc 
 
-vendor_account = User.create(email: 'castles@inthesky.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Victoria', last_name: 'Castle')
+vendor_account = User.create(email: 'castles@inthesky.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Victoria', last_name: 'Castle', address: '1 Industry Way, Mornington', state: 'VIC', postcode: 3931)
 
 vendor = Vendor.new(company_name: 'Castles In The Sky', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '1 Industry Way, Mornington', state: 'VIC', postcode: 3931  , abn: 51824753556)
 vendor.save 
@@ -34,7 +34,7 @@ company_desc = "Unicorn started out as a hobby for high-school friends Jason Bou
 
 p company_desc 
 
-vendor_account = User.create(email: 'info@unicorn.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Jason', last_name: 'Bourne')
+vendor_account = User.create(email: 'info@unicorn.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Jason', last_name: 'Bourne', address: '1 Industry Way, Mornington', state: 'SA', postcode: 5008)
 
 vendor = Vendor.new(company_name: 'Unicorn Brewery', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '1 Industry Way, Mornington', state: 'SA', postcode: 5008, abn: 51824751337)
 vendor.save 
@@ -51,7 +51,7 @@ company_desc = "The Dude is the brainchild of husband and wife team, James and O
 
 p company_desc 
 
-vendor_account = User.create(email: 'info@thedude.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Olga', last_name: 'Pantsall')
+vendor_account = User.create(email: 'info@thedude.com', password: 'password123', is_admin: false, is_vendor: true, first_name: 'Olga', last_name: 'Pantsall', address: '14-4 Collingwood St, Osborne Park ', state: 'WA', postcode: 6017)
 
 vendor = Vendor.new(company_name: 'The Dude', sales_total: 0, user_id: vendor_account.id, company_description: company_desc, company_address: '14-4 Collingwood St, Osborne Park ', state: 'WA', postcode: 6017, abn: 51812751323)
 vendor.save 

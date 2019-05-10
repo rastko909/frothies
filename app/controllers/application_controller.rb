@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
       def update_vendor_account
         unless current_user == nil 
             if current_user.is_vendor == true && params[:update] == "true"
-                vendor = Vendor.update(user_id: current_user.id, abn: params[:company_abn], company_name: params[:company_name], company_description: params[:company_description])
+                vendor = Vendor.find(current_user.vendor.id)
+                vendor.update(user_id: current_user.id, abn: params[:company_abn], company_name: params[:company_name], company_description: params[:company_description])
             end
         end
       end

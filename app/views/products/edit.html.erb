@@ -29,6 +29,9 @@
     <label>Description</label>
     <input type="textarea" name="description" id="description" value="<%= @product.description %>" />
 
+    <textarea rows="4" cols="100" name="description" id="description"><%= current_user.vendor.company_description %></textarea><br>
+    
+
     <label>ABV</label>
     <input type="number" step="0.01" name="abv" value="<%= @product.abv %>"/>
 

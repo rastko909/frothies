@@ -41,7 +41,7 @@
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: false, class: "sign-up-form-box" %>
     </div>
-
+    
     <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: false, class: "sign-up-form-box" %>
@@ -76,7 +76,7 @@
 
       <div class="field">
         Company Description:<br>
-        <input type="textarea" name="company_description" class="sign-up-form-box" value="<%= current_user.vendor.company_description %>"><br>
+        <textarea rows="4" cols="100" name="company_description" class="sign-up-form-box" id="description-box"><%= current_user.vendor.company_description %></textarea><br>
       </div>
       <input type="hidden" id="update" name="update" value="true">
       <% end %>

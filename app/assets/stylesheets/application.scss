@@ -29,14 +29,14 @@
 }
 
 .btn-custom-green {
-  background: #47877c;
+  background: #3700B2;
   color: white;
   transition: all 0.5s;
 }
 
 .btn-custom-green:hover {
-  background: #47877c;
-  transform: scale(1.02);
+  background: $dirtyorange;
+  
   color: white;
 }
 
@@ -228,11 +228,11 @@ body {
 
 .form-outer-container {
   height: calc(100% - 4.5rem);
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px;  
+  margin: 0;
 }
 
 .sign-up-container {
@@ -243,8 +243,8 @@ body {
   height: 100%;
   width: 525px;
   border: 2px black solid;
+  margin-top: 10px;
   background: white;
-  margin-bottom: 10px;
 }
 
 .sign-up-header {
@@ -375,15 +375,17 @@ label {
   margin: 0;
 }
 
-@media screen and (max-width: 1000px) {
-  
+@media screen and (max-width: 700px) {
   .product-index {
     flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 100%;
   }
   .buy-buttons {
-    border: 1px solid red;
     flex-direction: column;
-    margin-bottom: 20px !important;
+    margin-bottom: 5px;
   }
   
 }

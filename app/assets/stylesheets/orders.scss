@@ -9,14 +9,34 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background: none !important;
 }
+
+.vendor-history-container {
+  height: calc(100vh - 4.5rem);
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background: none;
+}
+
+.order-header {
+  border: 1px solid black;
+  padding-bottom: 20px;
+  margin: 20px;
+  width: 600px;
+  background: white !important;
+}
+
 
 .each-order-box {
   border: 1px solid black;
   padding-bottom: 20px;
   margin: 20px;
   width: 600px;
+  background: white !important;
 }
 
 .order-header {

@@ -2,28 +2,21 @@
 <!-- CHECK IF USER IS VENDOR -->
 <% if current_user.is_vendor? == true %>
 
-  <!-- ORDERS HEADER -->
-  <div class="d-flex bg-danger text-white align-center justify-content-center vh-10"><h3 id="remove-bottom-margin">Sales</h3></div>
-  <div class="d-flex align-center justify-content-between vh-10">
-    <div class="sales-col p-20">Total Items Sold: </div>
-    <div class="sales-col p-20">Sales Total: </div>
-    <div class="sales-col p-20"></div>
-  </div>
-
   <!-- CARD CONTAINER -->
-<div class="order-history-container">
+<div style="background: none;" class="vendor-history-container d-flex flex-column text-center">
+
   <% @vendor_orders.each do |order| %>
 
     <% if @orders_belonging_to_vendor.include?(order.id) %>
     <!-- START CARD -->
-    <div class="each-order-box">
+    <div style="background: white; width: 90%;" class="each-order-box">
 
       <div class="order-header">
        <h4> Order ID: #<%= order.id %></h4>
       </div>
 
 
-<div class="order-details">
+<div class="order-details text-left">
 
   <div class="customer-details">
       <div class="card-header">
@@ -41,7 +34,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Product: <%= item.product.title %> </li>
           <li class="list-group-item">Quantity: <%= item.quantity %></li>
-          <li class="list-group-item" id="last-list-group">Sale: <%= item.product.price * item.quantity %></li>
+          <li class="list-group-item" id="last-list-group">Sale: $<%= item.product.price * item.quantity %></li>
           
         </ul>
         
@@ -58,9 +51,9 @@
 
 <% else %>
 
-<div class="order-history-container">
+<div style="background: none;" class="order-history-container">
   <% @orders.each do |order| %>
-    <div class="each-order-box">
+    <div style="background: white;" class="each-order-box">
     <div class="order-header"><h4 >Order ID: #<%= order.id %></h4></div>
     <br>
     <div class="order-details">

@@ -8,12 +8,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#ModalCenter').modal('show');
+        });
+    </script>
   </head>
 
 <body>
 
   <% if current_user == nil %>
       <%= render "layouts/shared/guest_navbar" %>
+      <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Age Check</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body">
+          You must be over 18 years old to view our shop, please confirm you are over the legal drinking age.
+        </div>
+        <div class="modal-footer d-flex flex-row justify-content-between">
+          <%= link_to 'I am under 18', "https://www.google.com",  class: 'btn btn-danger w-50' %>
+          <%= link_to 'I am over 18', products_path,  class: 'btn btn-custom-green w-50' %>
+        </div>
+      </div>
+    </div>
+</div>
   <% elsif current_user.is_vendor? %>
       <%= render "layouts/shared/vendor_navbar" %>
   <% else %>

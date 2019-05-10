@@ -63,7 +63,7 @@ puts 'created vendor 3: info@thedude.com'
 # # ------------------------------
 
 dob = Date.parse('27/01/1988')
-customer = User.create(email: 'customer@gmail.com', password: 'password123', is_admin: false, is_vendor: false, first_name: 'Joe', last_name: 'Johnson', address: '8 Chatsworth Court, Springvale South', date_of_birth: '27/01/1988', state: 'VIC', postcode: 3172)
+customer = User.create(email: 'frothies.customer@gmail.com', password: 'Frothies-123', is_admin: false, is_vendor: false, first_name: 'Coder', last_name: 'Academy', address: '8 Chatsworth Court, Springvale South', date_of_birth: '27/01/1988', state: 'VIC', postcode: 3172)
 customer.save
 
 puts 'created customer'

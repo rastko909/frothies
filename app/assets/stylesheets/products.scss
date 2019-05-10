@@ -2,13 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.newproductform {
+.new-product-form {
   margin-top: 20px;
 }
 
-.newproductheader {
+.products-new-container {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.new-product-header {
   background: $brightorange;
   text-align: center !important;
+  padding: 10px;
+  width: 100%;
+}
+
+.products-new-detail {
+  padding: 20px;
 }
 
 .form-group {
@@ -17,4 +28,27 @@
 
 .submit {
   width: 100%;
+}
+
+#border-bottom {
+  padding-bottom: 5px;
+  border-bottom: 1px solid $turtlegreen;
+}
+
+.edit-product-outer-container {
+  height: calc(100vh - 4.5rem);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  background: white;
+  border: 2px solid black;
 }

@@ -356,7 +356,9 @@ This included testing as we developed each feature to see how it worked and also
 
 *Screenshots of testing during app development*
 
-![Screenshot of test]
+![Screenshot of test](images/Testing1.png)
+
+![Screenshot of test](images/Testing2.png)
 
 We also deployed to Heroku and tested using 'raise' by entering variables and checking output was as expected. For example, after deploying the products home page, we tested that we could create, save and retrieve objects using 
 - e = User.new

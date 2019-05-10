@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
   authorize_resource
   def index
-    @products = Product.all 
+    if params[:product]
+      @products = Product.where('lower(title) LIKE ? OR lower(description) LIKE ? OR lower(category) LIKE ?', "%#{params[:product]}%", "%#{params[:product]}%", "%#{params[:product]}%")
+    else
+      @products = Product.all 
+    end
   end
 
   def new 

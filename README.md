@@ -6,7 +6,7 @@
 Frothies developers, Jie-Yi, Gwenny, and Rastko 
 
 # Rails app 
-This rails app was created as part of assessment for Coder Academy Fasttrack Bootcamp over two weeks in April, 2019. 
+This rails app was created as part of assessment for Coder Academy Fasttrack Bootcamp over two weeks in April, 2019. Relevant links for the project are listed below. 
 
 Trello: https://trello.com/b/bqhyTEfY
 
@@ -20,11 +20,49 @@ Google slides User Personas: https://docs.google.com/presentation/d/1MiDaYOKiY3v
 
 Cardboard User Stories: https://app.cardboardit.com/maps/guests/f9c1bdb994a2426b642e43ccab0b20034ce0e5109cab39e661aa8c13424756b4
 
-Logins to use for testing:
+**Instructions for running the app**
 
+To run the Frothies app, please complete the following steps.
+1. Visit the Heroku site for [Frothies](https://enigmatic-shelf-88976.herokuapp.com/).
+2. Test the site by creating an account or using the existing account details provided in the Logins section below this section.
 
+Functionality included in the app you can test includes
+- logging in (logins provided below)
+- creating new user account
+- creating new vendor account
+- as an existing vendor
+  - adding products and uploading an image
+  - editing products
+  - deleting products 
+  - editing vendor profile
+- as an existing user
+  - editing profile
+  - creating new orders
+  - paying for orders as a test purchase
+  - seeing order history.
 
+**Logins to use for testing**
 
+Note to markers: please use the following User login to login to Frothies website and gmail. There is an optional vendor and mailgun account as well.
+
+*User (Buyer) details*
+Buyer account: frothies.customer@gmail.com
+Password: Frothies-123
+Note: this account is seeded and is listed as an authorised recipient for Mailgun. You may login to Frothies using these details and login to gmail using the same details to check the mailgun verification after test order purchase.
+
+*Vendor details*
+Vendor account: frothies.vendor@gmail.com
+Password: Frothies-123
+Note: this account is not seeded. Instructor can register as a brewer on Frothies app using these details, or if preferred can register using their own details.
+
+*Mailgun account*
+If you would like to add any other authorised mailgun recipients to test emails, use the following details.
+Login: frothies.application@gmail.com
+Password: 
+
+**What does this readme contain?**
+
+As per deliverable requirements, the short answer questions are listed below with individual headings and responses. Following these is our record of project management throughout the project.
 
 # Short answer questions
 ## 1. What is the need (i.e. challenge) that you will be addressing in your project?
@@ -49,8 +87,13 @@ For the buyers in our marketplace, the project will provide a convenient online 
 
 ## 4. Describe the network infrastructure the App may be based on.
 
+The Frothies app runs on Heroku, a cloud-based platform as a service (PaaS) that hosts web applications. 
 
+Heroku runs by using dynos, which are separate containers that run the app's code. A dyno is esentially a small virtual computer.
 
+Heroku has its own router that goes between dynos and app users. For example, if we type in our Frothies URL, a DNS request is sent to our provider, which directs the user's computer to the Heroku routers. 
+
+To get our app's code onto dynos, a process Heroku calls 'slug compilation' happens. This process is known as a release, which is a our application code (i.e. a slug) and the code's configuration. 
 
 ## 5. Identify and describe the software to be used in your App.
 
@@ -76,31 +119,37 @@ We used Javascript, an object-oriented programming langauge for web desing, for 
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
-Although the default database for Rails apps is MySQL, we followed the recommendation from staff to use PostgreSQL since it works better with Heroku. Postgres is native to Heroku while MySQL requires workarounds. A quote from a Heroku blog states 'At Heroku, we believe PostgreSQL offers the best mix of powerful features, data integrity, speed, standards compliance, and open-source code of any SQL database on the planet.' 
-
-Source of quote: https://blog.heroku.com/postgresql9-public-beta
+Although the default database for Rails apps is MySQL, we followed the recommendation from staff to use PostgreSQL since it works better with Heroku. Postgres is native to Heroku while MySQL requires workarounds. A quote from a [Heroku blog](ttps://blog.heroku.com/postgresql9-public-beta) states 'At Heroku, we believe PostgreSQL offers the best mix of powerful features, data integrity, speed, standards compliance, and open-source code of any SQL database on the planet.' 
 
 ## 7. Identify and describe the production database setup (i.e. postgres instance).
 
 We used the default settings for almost all of the database setup. This meant it was, as per Ruby on Rails apps, running off Rack. Rack is a middleware that executes our Ruby code, starting with reading and running the config.ru file (.ru being a naming convention for Rack files). We changed two settings for production (i.e. in our production.rb file). 
 
-Firstly, we set our storage for images to be Amazon so we could use cloud-based storage via S3 for some of our images. We included these details in the storage.yml file. 
-
-
+We set our storage for images to be Amazon so we could use cloud-based storage via S3 for some of our images. We included these details in the storage.yml file. 
 
 ## 8. Describe the architecture of your App.
 
-MVC
+As per Rails apps, Frothies utilises the model-view-conroller framework. This architecture has a 'separation of concerns' where each section is responsible for different parts of an app. 
 
-## 9.Explain the different high-level components (abstractions) in your App.
+**Model** is the part responsible for functionality and data (i.e. deals with the database)
+
+**View** is the information that the user can see and interact with
+
+**Controller** is what handles the user's inputs
+
+Entering our URL in a browser will send a request to a web server. Using resources, we are able to create RESTful routes for our components and generate paths in our app.
+
+Once the server receives a request, it will map the URL path to the controller it needs (e.g. to create or edit a login from a user) and the view part of the app will render a page where the user sees a  certain page, in this case a login page. Once a user logs in or signs up for example, the model comes into play, getting all users from the database and rendering the home page to the user with their user account details rendering on the page. 
+
+## 9. Explain the different high-level components (abstractions) in your App.
 
 Our app is built on Rails, a Domain Specific Language (DSL) which is itself written in Ruby. For the computer to understand our Ruby on Rails app, Ruby is translated into C, a low-level language, low-level being a language with less abstraction that is closer to machine code. C is then translated into the binary that the machine needs to run it. 
 
 One significant level of abstraction in Rails is the routes. The routes allow our app to match requests (e.g. GET, POST) to an action in the controller. Ultimately, this will direct the user to a URL, and because of this abstraction, we are not required to hard code the URLs or routes as strings.
 
-Another level of abstraction in Rails is 
+Another level of abstraction is how active records work. The way active storage works in Rails is abstracted for the user. 
  
-## 10.Detail any third party services that your App will use.
+## 10. Detail any third party services that your App will use.
 
 Frothies used several third party services, as listed below. 
 
@@ -131,19 +180,19 @@ Stripe software was used to handle our payment system. The setup of Stripe is mo
 *AWS*
 Amazon Simple Storage Service (S3), an AWS object storage service, was used for cloud-storage to allow the uploading and storing of images via a secure and reliable platform. 
 
-## 11.Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+## 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-As we developed Frothies to be a buyer / seller marketplace, the data structure is similar in some ways to other e-commerce platforms. 
+As we developed Frothies to be a buyer / seller marketplace, the way data is organised is similar in some ways to other e-commerce platforms. 
 
 Ebay: The models are similar (buyer / seller) although in eBay buyers can also be sellers, whereas in Frothies, the model and relations require users to be a buyer or seller, not both simultaneously. 
 
 Airbnb: Like eBay, the model of buyer/seller is similar in Frothies, but the peer to peer (i.e. buyer/seller can be the same person) aspect of the model is not. 
 
+## 12. Discuss the database relations to be implemented.
 
+In Frothies, there was only a need for one to one and one to many relations to be implemented. We did not require many to many.
 
-## 12.Discuss the database relations to be implemented.
-
-## 13.Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+## 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
 Between our Frothies Active Record models, the associations are as follows.
 
@@ -173,13 +222,13 @@ Order items (products after a buyer has ordered them)
   belongs_to :user, optional: true
   belongs_to :vendor, optional: true
 
-## 14.Provide your database schema design.
+## 14. Provide your database schema design.
 
 *Screenshot of Entity Relationship Diagram (ERD)*
 
 ![Screenshot of ERD](images/ERD_Final.png)
 
-## 15.Provide User stories for your App.
+## 15. Provide User stories for your App.
 
 We created user stories for two types of users
 - a buyer
@@ -209,7 +258,7 @@ We managed to develop all of our MVP features for our User stories.
 
 ![User stories](images/Cardboard_UserStories.png)
 
-## 16.Provide Wireframes for your App.
+## 16. Provide Wireframes for your App.
 
 We developed wireframes for our app using Figma. The wireframes were for mobile phone, tablet and desktop views.
 
@@ -328,9 +377,13 @@ We received one error to do with 'image_url' and tried several strategies to get
 
 ## 21. Discuss and analyse requirements related to information system security.
 
+The three main requirements of information system security is to maintain confidentiality of data, preserve the integrity of data and promote the availability of data for authorized use. These three goals must be considered when creating a plan to protect a computer system.
 
+Confidentiality of data refers to protecting data from being accessed by unauthorized parties. Only authorized users should be able to access data in the system.
 
+Integrity of data refers to the authencity of data in the system - whether information is accurate. Only authorized users can make modifications to the data and even so any improper modifications to the data should be prevented.
 
+Availability of data refers to whether information are accessible by authorized users. In an event of an emergency (intentional attacks or natural disasters) where it may result in a loss of information system capabilities, there should be a disaster recovery plan in place to ensure data is not lost. Encrypted data could also be stored on the internet/digital media.
 
 ## 22. Discuss methods you will use to protect information and data.
 
@@ -357,6 +410,10 @@ The Privacy Act 1988 regulates the management, storing, access and correction of
 Our app does not fall under these categories and therefore does not have responsibilities under this part of the Privacy Act.
 
 However, under the Section 6EA of the Privacy Act, we could decide to opt-in and be covered by the Privacy Act as a public committment to good privacy practice. Operating under the Privacy Act may result in an increase in customer confidence and trust in the business.
+
+# Project Management
+
+We managed the project daily, keeping records of all decisions and meetings in Trello and also summarised everything here as a record.
 
 # Day 1
 
@@ -580,7 +637,7 @@ Start of Day 6 planning
 
 We wanted to start day 6 by re-evaluating where we were at and also making sure everyone was on the same page in terms of understanding the data structure and code, as shown in the picture of our Trello card below.
 
-![Screenshot of Trello card, start of day 6]()
+![Screenshot of Trello card, start of day 6](images/Day&#32;6/RA_Trello_Day6Plan.png)
 
 ![Screenshot of Trello board at start of day 6](images/Day&#32;6/RA_Trello_StartOfDay6.png)
 

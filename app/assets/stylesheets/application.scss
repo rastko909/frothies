@@ -16,10 +16,11 @@
 @import 'bootstrap';
 @import 'variables.scss';
 @import 'charges.scss';
-@import 'order_items.scss';
+@import './order_items.scss';
 @import 'orders.scss';
 @import 'vendors.scss';
 @import 'products.scss';
+
 
 
 
@@ -299,7 +300,6 @@ body {
 ::placeholder {
   color: rgba(0, 0, 0, 0.527) !important;
   word-wrap: break-word;
-  
 }
 
 label {

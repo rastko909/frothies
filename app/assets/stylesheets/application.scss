@@ -359,8 +359,34 @@ label {
 }
 
 
+// invoice page
 
+.invoice-outer-container {
+  height: calc(100vh - 4.5rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px; 
+}
 
+.invoice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  background: white;
+  width: 80%;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  padding-top: 20px;
+  width: 100%;
+  background-color: $brightorange;
+}
 
 
 // Error Messages Box

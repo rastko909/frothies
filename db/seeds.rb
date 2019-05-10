@@ -89,7 +89,7 @@ url = 'https://i.imgur.com/Q8MLncz.png'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
 
-beer = Product.create(title: 'Castles in the Sky: Amber Ale', description: ' Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Amber Ale', abv: 5.0, price: 2.10, quantity: 144, vendor_id: 1)
+beer = Product.create(title: 'Castles in the Sky: Amber Ale', description: 'Caramel with a medium high maltiness. Amazing buddy for a BBQ.', category: 'Amber Ale', abv: 5.0, price: 2.10, quantity: 144, vendor_id: 1)
 url = 'https://i.imgur.com/y5ZiF19.png'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
@@ -113,7 +113,7 @@ file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
 
 
-beer = Product.create(title: 'Unicorn: Stout', description: 'Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Stout', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 2)
+beer = Product.create(title: 'Unicorn: Stout', description: 'Strong and sensual with coffee and chocolate flavours.', category: 'Stout', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 2)
 url = 'https://i.imgur.com/BtDCvye.png'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
@@ -132,12 +132,12 @@ file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
 
 
-beer = Product.create(title: 'The Dude: Witbier', description: 'Our American Pale Ale is hoppy, clean and buttery. Amber in colour with a pungent aroma.', category: 'Belgian Wheat Beer', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 3)
+beer = Product.create(title: 'The Dude: Witbier', description: 'Orange peely vibe with a hint of spice. Keeps it real.', category: 'Belgian Wheat Beer', abv: 6.0, price: 2.00, quantity: 144, vendor_id: 3)
 url = 'https://i.imgur.com/WclAmBp.png'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)
 
-beer = Product.create(title: 'The Dude: Dubbel', description: 'Orange peely vibe with a hint of spice. Keeps it real.', category: 'Belgian Brown Beer', abv: 5.5, price: 2.10, quantity: 144, vendor_id: 3)
+beer = Product.create(title: 'The Dude: Dubbel', description: 'Our Belgian-style dubbel is a very dark, sweet mouthful. Yeasty in a good way.', category: 'Belgian Brown Beer', abv: 5.5, price: 2.10, quantity: 144, vendor_id: 3)
 url = 'https://i.imgur.com/Ehr0qtq.png'
 file = open(url)
 beer.image_url.attach(io: file, filename: "temp.#{file.content_type_parse.first.split("/").last}", content_type: file.content_type_parse.first)

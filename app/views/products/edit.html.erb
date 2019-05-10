@@ -26,17 +26,17 @@
     <label>Title</label>
     <input type="text" name="title" value="<%= @product.title %>"/>
 
+    <label>Category</label>
+    <input type="text" name="category" value="<%= @product.category %>"/>
+
     <label>Description</label>
-    <input type="textarea" name="description" id="description" value="<%= @product.description %>" />
-
-    <textarea rows="4" cols="100" name="description" id="description"><%= current_user.vendor.company_description %></textarea><br>
+    <textarea rows="4" cols="100" name="description" id="description"><%= @product.description %></textarea><br>
     
-
     <label>ABV</label>
     <input type="number" step="0.01" name="abv" value="<%= @product.abv %>"/>
 
     <label>Price</label>
-    <input type="texle" value="<%= @product.price %>"/>
+    <input type="number" name="price" value="<%= @product.price %>"/>
 
     <label>Quantity</label>
     <input type="number" name="quantity" value="<%= @product.quantity %>"/>

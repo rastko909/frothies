@@ -11,18 +11,32 @@
 * It is generally better to create a new file per style scope.
 *
 */
+@import url('https://fonts.googleapis.com/css?family=Quantico');
 
 @import 'bootstrap';
 @import 'variables.scss';
-@import 'products.scss';
 @import 'charges.scss';
-@import 'vendors.scss';
 @import 'order_items.scss';
-@import './orders.scss';
+@import 'orders.scss';
+@import 'vendors.scss';
+@import 'products.scss';
 
 
 
-@import url('https://fonts.googleapis.com/css?family=Quantico');
+
+
+
+
+
+
+
+
+.cart-shipping {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  padding: 1rem;
+  width: 100%;
+}
 
 .price-bold {
   font-size: 3vh;
@@ -48,7 +62,7 @@ a {
   // color: #7B586B;
   // color: #7c26cb;
   color: #551a8b;
-
+  
 }
 
 a.active {
@@ -243,19 +257,21 @@ body {
   height: 100%;
   width: 525px;
   border: 2px black solid;
-  margin-top: 10px;
   background: white;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding-bottom: 10px;
 }
 
 .sign-up-header {
   background: $brightorange;
   padding: 5px;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-top: 15px;
 }
 
 .sign-up-form-box {
@@ -320,6 +336,8 @@ label {
 
 .additional-fields {
   display: none;
+  border-bottom: 5px solid $turtlegreen; 
+  background-color: $cartgreen;
 }
 
 // Log In Page
@@ -338,7 +356,7 @@ label {
   flex-direction: column;
   align-items: center;
   width: 525px;
-  border: 1px solid black;
+  border: 2px solid black;
   background: white;
 }
 
@@ -356,6 +374,10 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#fill-width {
+  width: 100%;
 }
 
 
@@ -415,4 +437,7 @@ label {
   }
   
 }
+
+
+
 

@@ -30,7 +30,7 @@
           <% end %>
         </div>
 
-        <div class="field">
+        <div class="field" id="bottom-border">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-form-box" %>
         </div>
@@ -90,11 +90,9 @@
         <%= f.submit "Update", class: "form-submit" %>
       </div>
 
-    <% end %>
-    <br>
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: 'background: red;', class: "form-cancel"  %>
-
     <%= link_to "Back", :back %>
+    <% end %>
 
   </div>
 

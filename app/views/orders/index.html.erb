@@ -11,10 +11,9 @@
     <!-- START CARD -->
     <div style="background: white; width: 90%;" class="each-order-box">
 
-      <div class="order-header">
+      <div style="margin: 0; border: 0;" class="order-header">
        <h4> Order ID: #<%= order.id %></h4>
       </div>
-
 
 <div class="order-details text-left">
 
@@ -44,7 +43,7 @@
 
     </div>
     <% end %> 
-    </div>
+    </>
 
   <% end%>
 </div>
@@ -54,7 +53,7 @@
 <div style="background: none;" class="order-history-container">
   <% @orders.each do |order| %>
     <div style="background: white;" class="each-order-box">
-    <div class="order-header"><h4 >Order ID: #<%= order.id %></h4></div>
+    <div style="margin: 0; border: 0;" class="order-header"><h4 >Order ID: #<%= order.id %></h4></div>
     <br>
     <div class="order-details">
     <% @orders_belonging_to_user = order.order_items.where(user_id: current_user.id) %>

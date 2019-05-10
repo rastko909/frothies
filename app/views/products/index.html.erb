@@ -2,8 +2,9 @@
 <div class="d-flex justify-content-around flex-wrap product-index">
   <% @products.each do |beer| %>
 
+
   <div style="border-radius: 0; border: black 2px solid; padding: 10px;" class="card d-flex flex-column m-2 w-25">
-    <%= image_tag beer.image_url, id: 'force-image-height', class: 'card-img-top' if beer.image_url.attached? %>
+    <%= image_tag beer.image_url, class: 'card-img-top' if beer.image_url.attached? %>
 
     <div class="card-body">
 

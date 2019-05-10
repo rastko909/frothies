@@ -16,14 +16,17 @@
 @import 'variables.scss';
 @import 'products.scss';
 @import 'charges.scss';
-@import 'orders.scss';
 @import 'vendors.scss';
 @import 'order_items.scss';
-
+@import './orders.scss';
 
 
 
 @import url('https://fonts.googleapis.com/css?family=Quantico');
+
+.price-bold {
+  font-size: 3vh;
+}
 
 .btn-custom-green {
   background: #47877c;
@@ -356,6 +359,10 @@ label {
 }
 
 
+
+
+
+
 // Error Messages Box
 
 #error_explanation {
@@ -369,7 +376,7 @@ label {
 }
 
 @media screen and (max-width: 1000px) {
-
+  
   .product-index {
     flex-direction: column;
   }
@@ -378,6 +385,6 @@ label {
     flex-direction: column;
     margin-bottom: 20px !important;
   }
-
+  
 }
 

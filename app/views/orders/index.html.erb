@@ -11,25 +11,29 @@
   </div>
 
   <!-- CARD CONTAINER -->
-  <div class="d-flex flex-row flex-wrap justify-content-around">
-
+<div class="order-history-container">
   <% @vendor_orders.each do |order| %>
 
     <% if @orders_belonging_to_vendor.include?(order.id) %>
     <!-- START CARD -->
-    <div class="card mt-2" style="width: 25%;">
+    <div class="each-order-box">
 
-    <div class="card-header bg-warning">
-      Order ID: #<%= order.id %>
-    </div>
+      <div class="order-header">
+       <h4> Order ID: #<%= order.id %></h4>
+      </div>
 
-    <div class="card-header">
-      <%= order.user.first_name %> <%= order.user.last_name %>
-    </div>
 
-    <div class="card-header">
-      <%= order.user.address %> <%= order.user.state %> <%= order.user.postcode %>
-    </div>
+<div class="order-details">
+
+  <div class="customer-details">
+      <div class="card-header">
+        <%= order.user.first_name %> <%= order.user.last_name %>
+      </div>
+
+      <div class="card-header">
+        <%= order.user.address %> <%= order.user.state %> <%= order.user.postcode %>
+      </div>
+  </div>
 
     <!-- LIST ITEMS IN ORDER -->
     <% order.order_items.each do |item| %>
@@ -37,29 +41,40 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Product: <%= item.product.title %> </li>
           <li class="list-group-item">Quantity: <%= item.quantity %></li>
-          <li class="list-group-item">Sale: <%= item.product.price * item.quantity %></li>
+          <li class="list-group-item" id="last-list-group">Sale: <%= item.product.price * item.quantity %></li>
+          
         </ul>
+        
+        <%# <div class> %>
       <% end %>
     <% end %>
 
-  </div>
-  <% end %>
- 
+    </div>
+    <% end %> 
+    </div>
 
   <% end%>
+</div>
 
 <% else %>
 
+<div class="order-history-container">
   <% @orders.each do |order| %>
-    
-    <p><strong><h4>Order ID: #<%= order.id %></h4></strong></p>
+    <div class="each-order-box">
+    <div class="order-header"><h4 >Order ID: #<%= order.id %></h4></div>
+    <br>
+    <div class="order-details">
     <% @orders_belonging_to_user = order.order_items.where(user_id: current_user.id) %>
     <% @orders_belonging_to_user.each do |orders| %>
       <p><strong>Product: </strong><%= orders.product.title %> - <strong> Quantity: </strong> <%= orders.quantity %></p>
     <% end %>
     <hr>
+    <div class="price-bold">
     <p><strong>Total Price:</strong> $<%= order.total_price %> AUD</p>
-    <hr>
-  <% end %>
+    </div>
+    </div>
+
+  </div>
+   <% end %>
 
 <% end %>

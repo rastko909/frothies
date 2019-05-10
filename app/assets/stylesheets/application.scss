@@ -16,12 +16,19 @@
 @import 'variables.scss';
 @import 'products.scss';
 @import 'charges.scss';
-@import 'orders.scss';
 @import 'vendors.scss';
 @import 'order_items.scss';
-
+@import './orders.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Quantico');
+
+.price-bold {
+  font-size: 3vh;
+}
+
+
+
+
 
 .product-index {
   flex-direction: row;
@@ -56,12 +63,6 @@
   grid-row: 3 / 4; 
   padding: 1rem;
   background-color: $dirtyorange;
-}
-
-#force-image-height {
-  width: 100%;
-  height: 20vw;
-  object-fit: cover;
 }
 
 .card-img-top {
@@ -311,6 +312,10 @@ label {
 }
 
 
+
+
+
+
 // Error Messages Box
 
 #error_explanation {
@@ -324,7 +329,7 @@ label {
 }
 
 @media screen and (max-width: 1000px) {
-
+  
   .product-index {
     flex-direction: column;
   }
@@ -333,6 +338,6 @@ label {
     flex-direction: column;
     margin-bottom: 20px !important;
   }
-
+  
 }
 

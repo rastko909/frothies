@@ -23,14 +23,6 @@
 
 
 
-
-
-
-
-
-
-
-
 .cart-shipping {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -325,6 +317,7 @@ label {
   margin-bottom: 10px;
 }
 
+
 .form-cancel {
   width:  100% !important;
   background: red;
@@ -408,6 +401,12 @@ label {
   padding-top: 20px;
   width: 100%;
   background-color: $brightorange;
+}
+
+// vendor 
+
+.vendor-history-container {
+  width: 100%;
 }
 
 

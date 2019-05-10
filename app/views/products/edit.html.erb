@@ -1,4 +1,11 @@
-<h1>Edit Beer</h1>
+  <div class="edit-product-outer-container">
+  
+  
+  <div class="edit-product-container">
+    <div class="new-product-header">
+      <h1>Edit Beer</h1>
+    </div>
+    <br>
 
 <form action="<%= product_path(params[:id]) %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
@@ -19,24 +26,35 @@
 
     <input type="hidden" name="_method" value="patch" />
 
-    <%= image_tag @product.image_url, style: 'width: 50%;' if @product.image_url.attached? %>
+    <%= image_tag @product.image_url, id: "border-bottom", style: 'width: 100%; height: 20vw; object-fit: scale-down;' if @product.image_url.attached? %>
 
     <br>
 
+  
     <label>Title</label>
-    <input type="text" name="title" value="<%= @product.title %>"/>
-
+    <input class="sign-up-form-box" type="text" name="title" value="<%= @product.title %>"/>
+    <br>
+ 
     <label>Description</label>
-    <input type="textarea" name="description" id="description" value="<%= @product.description %>" />
+    <input class="sign-up-form-box" type="textarea" name="description" id="description" value="<%= @product.description %>" />
+    <br>
 
     <label>ABV</label>
-    <input type="number" step="0.01" name="abv" value="<%= @product.abv %>"/>
+    <input class="sign-up-form-box" type="number" step="0.01" name="abv" value="<%= @product.abv %>"/>
+    <br>
 
     <label>Price</label>
-    <input type="texle" value="<%= @product.price %>"/>
+    <input class="sign-up-form-box"  type="texle" value="<%= @product.price %>"/>
+    <br>
 
     <label>Quantity</label>
-    <input type="number" name="quantity" value="<%= @product.quantity %>"/>
+    <input class="sign-up-form-box" type="number" name="quantity" value="<%= @product.quantity %>"/>
+    <br>
+    <br>
 
-    <input type="submit" value="Update" />
+    <input class="form-submit" type="submit" value="Update" />
 </form>
+
+</div>
+
+</div>

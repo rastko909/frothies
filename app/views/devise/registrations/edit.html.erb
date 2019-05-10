@@ -30,7 +30,7 @@
           <% end %>
         </div>
 
-        <div class="field">
+        <div class="field" id="bottom-border">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-form-box" %>
         </div>
@@ -76,7 +76,7 @@
 
       <div class="field">
         Company Description:<br>
-        <input type="textarea" name="company_description" class="sign-up-form-box" value="<%= current_user.vendor.company_description %>"><br>
+        <textarea rows="4" cols="100" name="company_description" class="sign-up-form-box" id="description-box" placeholder="<%= current_user.vendor.company_description %>"></textarea><br>
       </div>
       <input type="hidden" id="update" name="update" value="true">
       <% end %>
@@ -90,11 +90,9 @@
         <%= f.submit "Update", class: "form-submit" %>
       </div>
 
-    <% end %>
-    <br>
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style: 'background: red;', class: "form-cancel"  %>
-
     <%= link_to "Back", :back %>
+    <% end %>
 
   </div>
 

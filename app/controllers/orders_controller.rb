@@ -12,17 +12,18 @@ class OrdersController < ApplicationController
           if item.vendor.id == current_user.vendor.id 
             @orders_belonging_to_vendor << item.order.id
           end
-          if @vendor_order_items == 0 
-            flash[:alert] = "No orders belonging to this account exists."
-            redirect_to root_path
-          end
+        end
+        if @vendor_order_items.count == 0 
+          flash[:alert] = "No orders belonging to this account exists."
+          redirect_to root_path
+        end
+      else
+        @orders = current_user.orders
+        if @orders.count == 0 
+        flash[:alert] = "No orders belonging to this account exists."
+        redirect_to root_path
         end
       end
-    end
-    @orders = current_user.orders
-    if @orders.count == 0 
-      flash[:alert] = "No orders belonging to this account exists."
-      redirect_to root_path
     end
   end
 
